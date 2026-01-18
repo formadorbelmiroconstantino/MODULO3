@@ -56,6 +56,57 @@
             </li>
         </ul>
         <hr>
+         <h2>Como Excluir um Repositório Local?</h2>
+         <p>Para excluir um repositório local, você tem duas opções principais, dependendo se deseja apagar apenas o vínculo com o Git ou excluir a pasta inteira do seu computador.</p>
+
+         <h3>1. Remover apenas o "vínculo" com o Git (Manter os arquivos)</h3>
+         <p>Se você quer que a pasta deixe de ser um repositório Git, mas quer manter os arquivos originais no seu computador, basta apagar a pasta oculta .git.</p>
+         <em><strong>Nota:</strong> Se você não vir a pasta .git, é porque ela está oculta. No Windows, habilite "Itens Ocultos" no Explorador de Arquivos; no Mac, use Command + Shift + . (ponto).</em>
+
+<h3>2. Excluir a pasta completa (Apagar tudo)</h3>
+<p>Se o seu objectivo for remover o projecto e todos os seus arquivos permanentemente do disco rígido:</p>
+<ul>
+    <li>
+        Pelo Explorador de Arquivos (Interface Visual):
+        Clique com o botão direito na pasta do projeto e selecione Excluir (ou mova para a Lixeira).
+    </li>
+    <li>
+        No GitHub Desktop:
+        <ol>
+            <li>
+                Clique com o botão direito sobre o nome do repositório na lista lateral esquerda.
+            </li>
+            <li>
+                Seleccione Remove...
+            </li>
+            <li>
+                Na janela que abrir, marque a caixa que diz "Also move this repository to Trash" (Também mover este repositório para a Lixeira).
+            </li>
+            <li>
+                Clique em Remove.
+            </li>
+        </ol>
+    </li>
+</ul>
+
+<h3>3. Remover apenas da lista do GitHub Desktop (Sem apagar arquivos)</h3>
+<p>Se você quer apenas "limpar" a lista de projetos do aplicativo GitHub Desktop, mas quer que a pasta continue existindo no seu PC:</p>
+<ol>
+    <li>
+        Clique com o botão direito no repositório dentro do aplicativo.
+    </li>
+    <li>
+        Seleccione Remove...
+    </li>
+    <li>
+        Não marque a caixa de seleção. Apenas clique no botão Remove. O repositório sairá do programa, mas os arquivos continuarão intactos na sua pasta.
+    </li>
+</ol>
+<em>
+    <strong>Aviso:</strong> Diferente do GitHub.com, as exclusões locais feitas via comando rm -rf ou enviadas para a lixeira podem ser irreversíveis se a lixeira for esvaziada. Certifique-se de que não precisa de nenhum arquivo antes de exluir o projecto.
+</em>
+
+         <hr>
         <h2>Como Excluir um Repositório no <a href="https://github.com" target="_blank">github.com</a>?</h2>
 
         <p>Para excluir um repositório no GitHub, você deve acessar as configurações específicas do projecto. Esta acção
