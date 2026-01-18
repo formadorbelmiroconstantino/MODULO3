@@ -6,3 +6,5 @@ Aula 4 - Criando Conta no GitHub
  Meu username no GitHub: formadorbelmiroconstantino
  Meu perfil: http://github.com/formadorbelmiroconstantino
 Aula 5 - Gerenciando Repositórios GitHub
+Aula 6 - Hospedando Site com o GitHub Pages
+O Link do meu site ficou https://formadorbelmiroconstantino.github.io/projecto-andoid/
