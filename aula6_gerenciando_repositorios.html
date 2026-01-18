@@ -1,57 +1,118 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciando Repositório</title>
 </head>
+
 <body>
-<main>
-<h1>Gerenciando Repositório</h1>
-<p>Assim que tiveres um repositório criado para o projecto, todas as alterações que fizeres deverão ser guardadas localmente, primeiro, e depois no GitHub.</p>
+    <main>
+        <h1>Gerenciando Repositório</h1>
+        <p>Assim que tiveres um repositório criado para o projecto, todas as alterações que fizeres deverão ser
+            guardadas localmente, primeiro, e depois no GitHub.</p>
 
-<p>Note que depois da criação seu repositório, no lado esquerdo, aparece um ícone novo parecido a um símbolo de rede com três bolinhas e toda a vez que fizer uma alteração num arquivo, vai aparecer uma letra M.</p>
-<hr>
-<h2>Guardar as Alterações de no Repositório, Localmente e no GitHub</h2>
-<p>Para actualizar seu projecto local e enviá-lo ao GitHub usando o GitHub Desktop, siga estes passos simples:</p>
+        <p>Note que depois da criação do seu repositório, no lado esquerdo, aparece um ícone novo parecido a um símbolo de
+            rede com três bolinhas e toda a vez que fizer uma alteração num arquivo, vai aparecer uma letra M.</p>
+        <hr>
+        <h2>Guardar as Alterações de no Repositório, Localmente e no GitHub</h2>
+        <p>Para actualizar seu projecto local e enviá-lo ao GitHub usando o GitHub Desktop, siga estes passos simples:
+        </p>
 
-<h3>1. Visualizar as Alterações</h3>
-<p>Ao abrir o GitHub Desktop, ele detecta automaticamente os arquivos que você modificou ou adicionou na pasta do projecto.</p>
-<ul>
-    <li>
-        No painel esquerdo, na aba Changes, você verá a lista de arquivos alterados.
-    </li>
-    <li>
-        Certifique-se de que os arquivos que deseja salvar estão marcados com o "check".
-    </li>
-</ul>
+        <h3>1. Visualizar as Alterações</h3>
+        <p>Ao abrir o GitHub Desktop, ele detecta automaticamente os arquivos que você modificou ou adicionou na pasta
+            do projecto.</p>
+        <ul>
+            <li>
+                No painel esquerdo, na aba Changes, você verá a lista de arquivos alterados.
+            </li>
+            <li>
+                Certifique-se de que os arquivos que deseja salvar estão marcados com o "check".
+            </li>
+        </ul>
 
-<h3>2. Guardar Localmente (Commit)</h3>
-<p>O "Commit" é o comando que grava as alterações no histórico do seu computador.</p>
-<ul>
-    <li>
-        No canto inferior esquerdo, preencha o campo Summary (obrigatório) com uma breve descrição do que foi feito (ex: "Actualiza layout da home").
-    </li>
-    <li>
-        Clique no botão azul Commit to main (ou o nome da sua branch actual).
-    </li>
-</ul> 
+        <h3>2. Guardar Localmente (Commit)</h3>
+        <p>O "Commit" é o comando que grava as alterações no histórico do seu computador.</p>
+        <ul>
+            <li>
+                No canto inferior esquerdo, preencha o campo Summary (obrigatório) com uma breve descrição do que foi
+                feito (ex: "Actualiza layout da home").
+            </li>
+            <li>
+                Clique no botão azul Commit to main (ou o nome da sua branch actual).
+            </li>
+        </ul>
 
-<h3>3. Enviar para o GitHub (Push)</h3>
-<p>Após o commit, as alterações estão salvas apenas na sua máquina. Para enviá-las ao servidor do GitHub:</p>
-<ul>
-    <li>
-        Clique no botão Push origin que aparecerá na barra superior ou no painel central.
-    </li>
-    <li>
-        Se houver alterações feitas por outras pessoas no GitHub, o aplicativo pode pedir para você fazer um Fetch origin ou Pull primeiro para sincronizar antes de permitir o envio.
-    </li>
-</ul>
+        <h3>3. Enviar para o GitHub (Push)</h3>
+        <p>Após o commit, as alterações estão salvas apenas na sua máquina. Para enviá-las ao servidor do GitHub:</p>
+        <ul>
+            <li>
+                Clique no botão Push origin que aparecerá na barra superior ou no painel central.
+            </li>
+            <li>
+                Se houver alterações feitas por outras pessoas no GitHub, o aplicativo pode pedir para você fazer um
+                Fetch origin ou Pull primeiro para sincronizar antes de permitir o envio.
+            </li>
+        </ul>
+        <hr>
+        <h2>Como Excluir um Repositório no <a href="https://github.com" target="_blank">github.com</a>?</h2>
 
-<h3>Dica de Segurança</h3>
-<p>Antes de começar a trabalhar no dia a dia, é recomendável clicar em Fetch origin para verificar se há atualizações no servidor e garantir que sua cópia local não esteja atrasada em relação à versão online.</p>
+        <p>Para excluir um repositório no GitHub, você deve acessar as configurações específicas do projecto. Esta acção
+            é permanente e removerá todo o código, issues e comentários associados.</p>
+        <h3>Siga estes passos:</h3>
+        <ol>
+            <li>
+                Acesse o GitHub e navegue até a página principal do repositório que deseja apagar.
+            </li>
+            <li>
+                No menu superior, clique na aba Settings (Configurações).
+            </li>
+            <li>
+                Na página que abrir (aba General), role até o final até encontrar a secção Danger Zone (Zona de Perigo).
+            </li>
+            <li>
+                Clique no botão Delete this repository.
+            </li>
+            <li>
+                O GitHub solicitará uma série de confirmações:
+                <ol>
+                    <li>
+                        Clique em I want to delete this repository.
+                    </li>
+                    <li>
+                        Clique em I have read and understand these effects após ler os avisos.
+                    </li>
+                </ol>
+            </li>
+            <li>
+                Para confirmar que você está apagando o repositório correto, digite o nome completo do repositório
+                (geralmente no formato seu-usuario/nome-do-repo) na caixa de texto indicada.
+            </li>
+            <li>
+                Clique no botão final de confirmação para concluir a exclusão.
+            </li>
+        </ol>
 
-<p>Para mais detalhes visuais, você pode consultar <a href="https://docs.github.com/pt/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop" target="_blank">o Guia oficial do GitHub Desktop</a>.</p>
-</main>
+        <h3>Observações importantes:</h3>
+
+        <ul>
+            <li>
+                Permissões: Você precisa ser o proprietário ou ter permissões de administrador para realizar esta acção.
+            </li>
+            <li>
+                Repositório Local: Apagar o repositório no site do GitHub não apaga os arquivos que estão no seu computador. Para remover o vínculo local com o GitHub, você pode usar o comando git remote remove origin no seu terminal.
+            </li>
+        </ul>
+        <hr>
+        <h3>Dica de Segurança</h3>
+        <p>Antes de começar a trabalhar no dia a dia, é recomendável clicar em Fetch origin para verificar se há
+            atualizações no servidor e garantir que sua cópia local não esteja atrasada em relação à versão online.</p>
+
+        <p>Para mais detalhes visuais, você pode consultar <a
+                href="https://docs.github.com/pt/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop"
+                target="_blank">o Guia oficial do GitHub Desktop</a>.</p>
+    </main>
 </body>
+
 </html>
