@@ -13,3 +13,5 @@ Link para criar o QRCODE para a URL de um site: https://www.qr-code-generator.co
 
 Aula 7 - Manutenção de Sites Hospedados no GitHub Pages
 Aula 8 - Recursos Sociais do GitHub
+Aula 9 - O que é clonar Repositórios no GitHub
+Aula 10 - Clonando Repositórios no GitHub
