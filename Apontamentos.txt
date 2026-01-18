@@ -12,3 +12,4 @@ O Link do meu site ficou https://formadorbelmiroconstantino.github.io/projecto-a
 Link para criar o QRCODE para a URL de um site: https://www.qr-code-generator.com/
 
 Aula 7 - Manutenção de Sites Hospedados no GitHub Pages
+Aula 8 - Recursos Sociais do GitHub
