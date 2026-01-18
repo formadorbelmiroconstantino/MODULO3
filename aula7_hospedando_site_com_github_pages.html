@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospedando Site com GitHub Pages</title>
+</head>
+<body>
+<main>
+        <h1>Hospedando Site com GitHub Pages</h1>
+        <p>Hospedar um site no GitHub Pages continua sendo uma das formas mais simples e gratuitas de colocar páginas estáticas (HTML, CSS e JS) online.</p>
+        <h2>Passo a Passo Actualizado:</h2>
+
+        <h3>1. Preparar o Repositório</h3>
+<ul>
+    <li>
+        Nome do Repositório:</li>
+        <ul>
+        <li>
+            Para um site pessoal: Nomeie o repositório como seu-usuario.github.io. O site ficará disponível exactamente nesse endereço.</li>
+        <li>
+            Para um projecto específico: Pode usar qualquer nome (ex: meu-projecto). O link será seu-usuario.github.io/meu-projecto/.</li>
+        </ul>
+    </li>
+
+    <li>
+        Visibilidade: O repositório pode ser público ou privado (se o seu plano permitir), mas o site resultante será sempre público na web.
+    </li>
+    <li>
+        Arquivo Principal: Certifique-se de que o arquivo principal do seu site se chama index.html e está na pasta raiz do projecto.
+    </li>
+</ul>
+
+<h3>2. Activar a Hospedagem (GitHub Pages)</h3>
+<ol>
+    <li>
+        No seu repositório no GitHub, clique na aba Settings (Configurações).
+    </li>
+    <li>
+        No menu lateral esquerdo, na secção "Code and automation", clique em Pages.
+    </li>
+    <li>
+        Em Build and deployment, sob a opção "Source", escolha Deploy from a branch.
+    </li>
+    <li>
+        Em Branch, seleccione a branch principal (geralmente main ou master) e a pasta / (root).
+    </li>
+    <li>Clique em Save.</li>
+</ol>
+<h3>3. Acessar o Site</h3>
+<p>O GitHub levará alguns minutos para processar os arquivos. Após o processamento, um link aparecerá no topo da página de configurações do Pages indicando que o site está "Live".</p>
+
+<h3>Dicas Extras:</h3>
+<ul>
+    <li>
+        Domínios Personalizados: Você pode conectar um domínio próprio (ex: www.seusite.com) na mesma tela de configurações do Pages. Será necessário configurar os registros DNS (A ou CNAME) no seu provedor de domínio.
+    </li>
+    <li>
+        HTTPS: O GitHub Pages fornece certificados SSL automáticos e gratuitos. Active a opção Enforce HTTPS nas configurações para garantir que seu site seja seguro.
+    </li>
+    <li>
+        Geradores Estáticos: O serviço suporta nactivamente o Jekyll, mas você pode hospedar sites feitos com React, Vue, Next.js ou Hugo, desde que faça o "build" (geração dos arquivos estáticos) antes de enviar ou use o GitHub Actions para automatizar esse processo.
+    </li>
+    <li>
+        Limites: O site não pode exceder 1 GB de tamanho e possui um limite de largura de banda de 100 GB por mês.
+    </li>
+</ul>
+</main>
+</body>
+</html>
