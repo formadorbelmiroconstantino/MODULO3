@@ -104,6 +104,44 @@
                 Repositório Local: Apagar o repositório no site do GitHub não apaga os arquivos que estão no seu computador. Para remover o vínculo local com o GitHub, você pode usar o comando git remote remove origin no seu terminal.
             </li>
         </ul>
+<hr>
+        <h2>Alterar um Repositório de Privado para Público e Vice-Versa</h2>
+        <p>Para alterar a visibilidade de um repositório de privado para público ou de público para privado no GitHub, siga estes passos:</p>
+
+<ol>
+    <li>
+        Acesse o GitHub e vá até a página principal do seu repositório.
+    </li>
+    <li>
+        Clique na aba Settings (Configurações) no menu superior.
+    </li>
+    <li>
+        Na aba lateral esquerda, certifique-se de que está em General (Geral) e role a página até o fim, na secção Danger Zone (Zona de Perigo).
+    </li>
+    <li>
+        Ao lado de "Change repository visibility", clique no botão Change visibility.
+    </li>
+    <li>
+        Seleccione a opção Make public.
+    </li>
+    <li>
+        O sistema solicitará confirmações para garantir que você entende as consequências (como a perda de acesso a recursos exclusivos de repositórios privados, como certas ferramentas de CI/CD gratuitas):
+        <ol>
+            <li>
+                Clique em I want to make this repository public.
+            </li>
+            <li>
+                Clique em I have read and understand these effects.
+            </li>
+        </ol>
+    </li>
+    <li>
+        Por fim, clique no botão de confirmação final (pode ser necessário digitar o nome do repositório ou sua senha/código 2FA para validar).
+    </li>  
+</ol>
+
+<p><strong>Atenção:</strong> Ao tornar um repositório público, qualquer pessoa na internet poderá visualizar e baixar o seu código. Verifique se não há senhas, chaves de API ou arquivos sensíveis (como .env) no histórico do repositório antes de realizar a alteração.</p>
+
         <hr>
         <h3>Dica de Segurança</h3>
         <p>Antes de começar a trabalhar no dia a dia, é recomendável clicar em Fetch origin para verificar se há
