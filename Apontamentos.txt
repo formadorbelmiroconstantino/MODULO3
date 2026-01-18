@@ -8,3 +8,7 @@ Aula 4 - Criando Conta no GitHub
 Aula 5 - Gerenciando Repositórios GitHub
 Aula 6 - Hospedando Site com o GitHub Pages
 O Link do meu site ficou https://formadorbelmiroconstantino.github.io/projecto-andoid/
+
+Link para criar o QRCODE para a URL de um site: https://www.qr-code-generator.com/
+
+Aula 7 - Manutenção de Sites Hospedados no GitHub Pages
