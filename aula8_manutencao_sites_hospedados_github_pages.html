@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manutenção de Sites Hospedados no GitHub Pages</title>
+</head>
+<body>
+<main>
+
+        <h1>Manutenção de Sites Hospedados no GitHub Pages</h1>
+<p>A manutenção de sites no GitHub Pages é extremamente eficiente porque utiliza o conceito de Integração Contínua (CI): qualquer alteração no código do repositório é reflectida automaticamente em produção.</p>
+<h2>Abaixo, estão os pilares da manutenção:</h2>
+
+<h3>1. Actualização de Conteúdo</h3>
+<p>Sempre que precisar alterar um texto, imagem ou estilo:</p>
+<ul>
+    <li>
+        Faça a alteração nos arquivos locais.
+    </li>
+    <li>
+        Realize o Commit e o Push para a branch principal (ex: main).
+    </li>
+    <li>
+        O GitHub detectará a mudança e iniciará um novo "workflow" para actualizar o site. Você pode acompanhar o progresso na aba Actions do repositório.
+    </li>
+</ul>
+
+<h3>2. Gerenciamento de Dependências e Segurança</h3>
+<p>Se o seu site usa geradores de sites estáticos (como Jekyll, Hugo ou frameworks como React):</p>
+<ul>
+    <li>
+        Dependabot: Active-o para que o GitHub verifique automaticamente se as bibliotecas usadas (CSS, JS) têm falhas de segurança. Ele criará Pull Requests automáticos para actualizar essas dependências.
+    </li>
+    <li>
+        Segurança de Formulários: Como o GitHub Pages hospeda apenas arquivos estáticos, para formulários de contacto, você deve manter integrações com serviços externos (ex: Formspree ou Netlify Forms) para evitar que o site pare de receber mensagens.
+    </li>
+</ul>
+
+<h3>3. Monitoramento de Build</h3>
+<p>Às vezes, uma atualização pode falhar (por exemplo, um erro de sintaxe no código).</p>
+<ul>
+    <li>
+        Verifique periodicamente a aba Actions. Se houver um ícone vermelho ❌, o site no ar continuará mostrando a versão anterior (estável), mas as novas alterações não aparecerão até que você corrija o erro.
+    </li>
+</ul>
+
+<h3>4. Renovação de Certificados e Domínios</h3>
+<ul>
+    <li>
+        HTTPS: O certificado SSL do GitHub Pages é renovado automaticamente. Você só precisa garantir que a opção Enforce HTTPS continue marcada nas configurações.
+    </li>
+    <li>
+        Domínio Personalizado: Se usar um domínio próprio (ex: .com.br), a única manutenção externa é garantir que a anuidade do domínio esteja paga no seu provedor (Registro.br, GoDaddy, etc.).
+    </li>
+</ul>
+
+<h3>5. Manutenção de SEO e Links</h3>
+<ul>
+    <li>
+        Broken Links: Utilize ferramentas como o Broken Link Checker para garantir que links externos para outros sites ainda funcionam.
+    </li>
+    <li>
+    Sitemap e Robots.txt: Mantenha estes arquivos actualizados na raiz do repositório para garantir que o Google continue indexando suas páginas correctamente.
+    </li>
+</ul>
+
+<p><strong>Em resumo:</strong> a manutenção técnica de servidor é feita pelo GitHub; sua única responsabilidade é manter o código limpo e os arquivos atualizados no repositório.</p>
+</main>
+</body>
+</html>
