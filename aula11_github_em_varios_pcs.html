@@ -20,38 +20,69 @@
 <main>
 
         <h1>GitHub em vários PCs</h1>
-<p>Git e GitHub são ferramentas complementares, mas com funções distintas no desenvolvimento de software:</p>
+<p>Usar o GitHub em vários PCs envolve clonar seu repositório em cada máquina, fazer login na sua conta no GitHub Desktop ou CLI, e usar os comandos git add, commit, push (do PC 1 para o GitHub) e git pull/fetch (do GitHub para o PC 2) para sincronizar as alterações, sendo essencial configurar chaves SSH para segurança, especialmente em repositórios privados.</p>
 
-<h2>Git (A Ferramenta)</h2>
-<p>O Git é um sistema de controle de versão distribuído. Ele funciona localmente no seu computador e serve para:</p>
-
+<h2>1. Preparação Inicial (No GitHub.com)</h2>
+<p>Crie seu repositório: Se ainda não o fez, crie seu repositório no GitHub.com. </p>
+<h2>2. No Primeiro PC</h2>
 <ul>
     <li>
-        Registrar o histórico: Salva todas as alterações feitas nos arquivos por meio de "checkpoints" chamados commits.</li>
+        Instale o Git e GitHub Desktop: Baixe e instale o Git e o GitHub Desktop (opcional, mas recomendado).
+    </li>
     <li>
-        Permitir reversões: Possibilita voltar a versões anteriores do projeto caso algo dê errado.</li>
+        Faça Login: Abra o GitHub Desktop e faça login na sua conta (File > Options > Accounts).
+    </li>
     <li>
-        Trabalho em paralelo: Através de branches (ramificações), permite que você trabalhe em novas funções sem alterar o código principal até que esteja pronto.
+        Clonagem: Clone o repositório do GitHub para o seu PC (File > Clone Repository) ou arraste a pasta do projecto.
+    </li>
+    <li>
+        Configure o Git: Defina seu nome e email (File > Options > Git).
     </li>
 </ul>
 
-<h2>GitHub (A Plataforma)</h2>
-<p>O GitHub é uma plataforma de hospedagem online baseada na nuvem que utiliza o Git como motor. Suas principais utilidades são: </p>
-
+<h2>3. No Segundo (e Próximos) PC</h2>
 <ul>
     <li>
-        Hospedagem de repositórios: Funciona como um "backup" na nuvem para o seu código Git.
+        Repita os passos: Instale Git/GitHub Desktop e faça login na mesma conta
     </li>
     <li>
-        Colaboração: Facilita o trabalho em equipe, permitindo que outros desenvolvedores visualizem, sugiram mudanças e contribuam com o projecto
-    </li>
-    <li>
-        Rede Social e Portfólio: É amplamente utilizado por recrutadores para avaliar as habilidades técnicas de um desenvolvedor através de seus projectos públicos.
+        Clone novamente: Clone o mesmo repositório do GitHub para o novo PC.
     </li>
 </ul>
-<p>
-    <strong>Em suma</strong>, você usa o Git para gerenciar o seu trabalho local e o GitHub para compartilhar esse trabalho com o mundo ou com sua equipe.
-</p>
+<h2>4. Sincronização (O Fluxo de Trabalho)</h2>
+<ul>
+    <li>
+        No PC 1 (onde você codifica):
+    
+        <ul>
+            <li>
+                git add . (Adiciona as mudanças)
+            </li>
+            <li>
+                git commit -m "Sua mensagem" (Salva as mudanças localmente)
+            </li>
+            <li>
+                git push origin main (Envia para o GitHub).
+            </li>
+        </ul>
+        </li>
+    <li>
+        No PC 2 (ou qualquer outro):
+    
+    </li>
+        <ul>
+            <li>
+                git fetch (Puxa as informações do servidor, mas não as mescla).
+            </li>
+            <li>
+                git pull origin main (Baixa e mescla as mudanças do GitHub para o seu PC).
+            </li>
+        </ul>
+      </li>
+</ul> 
+        <h2>5. Dica: Chaves SSH (para Repositórios Privados)</h2>
+        <ul><li>Se for usar repositórios privados, crie uma chave SSH em cada PC e adicione-a ao seu perfil do GitHub para autenticação segura, sem precisar digitar a senha toda hora.</li></ul>
+  
 </main>
 </body>
 </html>
