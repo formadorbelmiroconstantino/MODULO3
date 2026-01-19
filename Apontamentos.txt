@@ -15,5 +15,9 @@ Aula 7 - Manutenção de Sites Hospedados no GitHub Pages
 Aula 8 - Recursos Sociais do GitHub
 Aula 9 - O que é clonar Repositórios no GitHub
 Aula 10 - Clonando Repositórios no GitHub
-Aula 11 - Download dasIimagens do Capítulo
+Aula 11 - Download das Iimagens do Capítulo
 Baixar as imagens do Módulo 3 do GitHub do Gustava, exercícios/exc22/imagem
+Aula 12 - Colocando uma Imagem de Fundo no seu Site -  background-image
+Aula 12.1 - Imagens que se Repetem no Fundo do Site - background-repeat
+Aula 12.2 - Configurando a Posição da Imagem no Fundo do Site - background-position
+Aula 12.3 - Mudando o Tamanho da Imagem de Fundo do Site - background-size

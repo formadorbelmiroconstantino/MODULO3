@@ -9,64 +9,51 @@
         body{
             font-family: Arial, Helvetica, sans-serif;
             font-size: 18px;
-            margin: 20px;
-            /*background-image: url('img/pattern001.png');*/
-            
+            margin: 20px;            
         }
-       
+       div.bloco{
+height: 200px;
+border: 1px solid black;
+margin: 5px;
+border-radius: 20px;
+ background-image: url('img/wallpaper003.jpg');
+       }
+
+       div#q1{
+background-position: left top;
+       }
+
+       div#q2{
+        background-position: left center;
+       }
+
+       div#q3{
+        background-position: right bottom;
+       }
+
+       div#q4{
+        background-position: center center;
+       }
     </style>
 </head>
 <body>
 <main>
-    <h1>Imagens que se Repetem no Fundo do Site</h1>
-<p>Imagens que se repetem no fundo de um site são controladas pelo CSS com a propriedade background-repeat, que define o padrão de repetição, sendo repeat (padrão, repete em X e Y), repeat-x (só horizontal), repeat-y (só vertical) e no-repeat (não repete) os valores mais comuns, permitindo que o desenvolvedor crie texturas ou fundos sem ladrilhos parciais.</p>
+    <h1>Configurando a Posição da Imagem no Fundo do Site</h1>
+<div class="bloco" id="q1">
 
-<h2>Valores Comuns de background-repeat:</h2>
-<ul>
-    <li>
-        repeat: A imagem se repete tanto horizontalmente quanto verticalmente, preenchendo todo o espaço (comportamento padrão).
-    </li>
-    <li>
-        repeat-x: A imagem se repete apenas na direção horizontal (eixo X).
-    </li>
-    <li>
-        repeat-y: A imagem se repete apenas na direção vertical (eixo Y).
-    </li>
-    <li>
-        no-repeat: A imagem é exibida apenas uma vez, sem nenhuma repetição, preenchendo o espaço ou não.
-    </li>
-    <li>
-        space: A imagem é repetida, e o espaço extra é distribuído entre as repetições, sem cortar as imagens.
-    </li>
-    <li>
-        round: A imagem é repetida para preencher o espaço, redimensionando-se para que não fiquem ladrilhos parciais.
-    </li>
-</ul>
+</div>
 
-<h3>Exemplo</h3>
-<p>
-    body { <br>
-  background-image: url("sua-imagem.png"); <br>
-  background-repeat: no-repeat; /* Para não repetir */ <br>
-  /* Ou */ <br>
-  /* background-repeat: repeat-x; */ /* Para repetir só na horizontal */ <br>
-  /* Ou */ <br>
-  /* background-repeat: repeat-y; */ /* Para repetir só na vertical */ <br>
-}
+<div class="bloco" id="q2">
+    
+</div>
 
-</p>
-<h2>Controlar a Imagem de Fundo:</h2>
-<ul>
-    <li>
-        background-size: Define o tamanho da imagem (ex: cover, contain, largura altura).
-    </li>
-    <li>
-        background-position: Define a posição inicial da imagem (ex: center, top left).
-    </li>
-    <li>
-        background-attachment: Fixa a imagem no fundo enquanto o conteúdo rola (ex: fixed).
-    </li>
-</ul> 
+<div class="bloco" id="q3">
+    
+</div>
+
+<div class="bloco" id="q4">
+    
+</div>
 </main>
 </body>
 </html>
