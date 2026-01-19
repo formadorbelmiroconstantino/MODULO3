@@ -21,3 +21,4 @@ Aula 12 - Colocando uma Imagem de Fundo no seu Site -  background-image
 Aula 12.1 - Imagens que se Repetem no Fundo do Site - background-repeat
 Aula 12.2 - Configurando a Posição da Imagem no Fundo do Site - background-position
 Aula 12.3 - Alterando o Tamanho da Imagem de Fundo do Site - background-size
+Aula 12.4 - background-attachment e shorthand

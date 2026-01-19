@@ -8,15 +8,23 @@
      
         body{
           height: 100vh;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 18px;
-            margin: 20px;
-            background-color: black;
+           
+           /* background-color: black;
             background-image: url('img/wallpaper002.jpg');
             background-position: center top;
-            background-repeat: no-repeat;
+            background-repeat: no-repeat;*/
             /*Se diminuir o tamanho da tela, vai aparecer o fundo preto do body. Para resolvermos isso, vamos utilizar o background-size: cover;, mas nao se esqueca de definar o height: 100vh;*/
+            /*
             background-size: cover;
+            background-attachment: fixed;*/
+
+            /*Shorthand para o background
+           Sequencia: background: [color] [image] [repeat] [attachment] [position] / [size] [origin] [clip];*/
+ 
+             
+
+              
+                 background: black url("img/wallpaper002.jpg") no-repeat center top/ cover fixed;
         }
        
         main{
@@ -27,6 +35,9 @@
           border: 1px solid darkblue;
           border-radius: 15px;
         }
+        p{
+          text-align: justify;
+        }
     </style>
 </head>
 <body>
@@ -34,8 +45,39 @@
     <h1>Alterando o Tamanho da Imagem de Fundo do Site</h1>
     <p>Alterando o Tamanho da Imagem de Fundo do Site</p>
 
+    <h2>Shorthand do background-image</h2>
+<p>A propriedade shorthand para background-image (e todas as outras propriedades de fundo) é simplesmente background.</p>
+<p> 
+Esta propriedade permite definir múltiplos valores em uma única linha, seguindo uma ordem específica para garantir que o navegador interprete corretamente cada valor.</p>
+
+<h2>Sintaxe Geral</h2>
+<p>A estrutura recomendada para o uso do shorthand é:</p>
+<p>
+  background: [color] [image] [repeat] [attachment] [position] / [size] [origin] [clip];</p>
+
+  <h3>Regras Importantes</h3>
+<ul>
+  <li>
+    Barra ( / ): O valor de background-size deve vir imediatamente após background-position, separado por uma barra inclinada (/).
+  </li>
+  <li>
+    Ordem: Embora alguns valores possam ser omitidos, manter a ordem ajuda a evitar erros de renderização. Se você omitir um valor, ele será resetado para o seu padrão inicial (ex: se omitir repeat, ele assumirá repeat).
+  </li>
+  <li>
+    Múltiplas Imagens: Você pode definir várias camadas de fundo separando-as por vírgulas. A cor de fundo (background-color) deve ser declarada apenas na última camada.
+  </li>
+</ul>
+<hr>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam unde earum incidunt, aliquid dignissimos, cum est sed delectus id corporis, vitae amet quo. Non voluptatum molestias sit tenetur? Eaque, ut.</p>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio officia impedit nisi, aut soluta unde? Minus cumque asperiores exercitationem corrupti excepturi vel expedita distinctio, tempora velit repellendus nam impedit ab!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam unde earum incidunt, aliquid dignissimos, cum est sed delectus id corporis, vitae amet quo. Non voluptatum molestias sit tenetur? Eaque, ut.</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio officia impedit nisi, aut soluta unde? Minus cumque asperiores exercitationem corrupti excepturi vel expedita distinctio, tempora velit repellendus nam impedit ab!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam unde earum incidunt, aliquid dignissimos, cum est sed delectus id corporis, vitae amet quo. Non voluptatum molestias sit tenetur? Eaque, ut.</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio officia impedit nisi, aut soluta unde? Minus cumque asperiores exercitationem corrupti excepturi vel expedita distinctio, tempora velit repellendus nam impedit ab!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam unde earum incidunt, aliquid dignissimos, cum est sed delectus id corporis, vitae amet quo. Non voluptatum molestias sit tenetur? Eaque, ut.</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio officia impedit nisi, aut soluta unde? Minus cumque asperiores exercitationem corrupti excepturi vel expedita distinctio, tempora velit repellendus nam impedit ab!</p>
+
+    <p>Aumentamos o número de parágros e presumimos que tenha percebido que o conteúdo do main passou o espaço do body. Podemos matar isso com o     background-attachment: fixed;</p>
 </main>
 </body>
 </html>
