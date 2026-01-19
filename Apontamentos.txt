@@ -15,3 +15,5 @@ Aula 7 - Manutenção de Sites Hospedados no GitHub Pages
 Aula 8 - Recursos Sociais do GitHub
 Aula 9 - O que é clonar Repositórios no GitHub
 Aula 10 - Clonando Repositórios no GitHub
+Aula 11 - Download dasIimagens do Capítulo
+Baixar as imagens do Módulo 3 do GitHub do Gustava, exercícios/exc22/imagem
