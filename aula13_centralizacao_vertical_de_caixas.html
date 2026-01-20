@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centralização Vertical de Caixas</title>
+      <style>
+     
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            margin: 20px;
+        }
+        p{
+            text-align: justify;
+        }
+.container1 {
+  display: flex;
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  height: 100vh; /* Exemplo: ocupa a altura total da tela. Se notar que activou o scroll, pode reduzir para 96vh ou menus.*/
+}
+
+.caixa{
+    background-color: blue;
+    color: white;
+}
+
+.container2 {
+  display: grid;
+  place-items: center; /* Centraliza vertical e horizontalmente */
+  height: 100vh;
+}
+
+.container3 {
+  position: relative; /* O pai precisa ser relativo */
+  height: 100vh;
+}
+
+.caixa3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Ajusta para o centro */
+     background-color: blue;
+    color: white;
+}
+
+.container4 {
+  height: 200px;
+  line-height: 200px; /* Define a altura da linha igual à metade da altura do container */
+   background-color: blue;
+    color: white;
+}
+
+    </style>
+</head>
+<body>
+<main>
+
+        <h1>Centralização Vertical de Caixas</h1>
+        <p>
+            Para centralizar caixas verticalmente em HTML/CSS, as melhores abordagens modernas são Flexbox (display: flex; align-items: center; no pai) ou Grid (display: grid; place-items: center; no pai), que centralizam o conteúdo de forma simples e eficaz; métodos mais antigos incluem position: absolute com transform: translate(-50%, -50%); ou margin: auto com top/bottom: 0 (exigindo altura fixa), mas Flexbox/Grid são mais flexíveis e recomendados. 
+        </p>
+<hr>
+        <h2>1. Exemplo com Flexbox (Recomendado para a maioria dos casos)</h2>
+<p>Esta é a forma mais comum e versátil de centralizar itens (blocos ou texto) dentro de um container.</p>
+<p><strong>No HTML:</strong></p>
+&lt;div class="container2"&gt; <br>
+  &lt;div class="caixa2"&gt; <br>
+    Conteúdo Centralizado
+  &lt;/div&gt; <br>
+&lt;/div&gt; <br>
+<p><strong>No CSS:</strong></p>
+.container1 { <br>
+  display: flex; <br>
+  align-items: center; /* Centraliza verticalmente */ <br>
+  justify-content: center; /* Centraliza horizontalmente */ <br>
+  height: 100vh; /* Exemplo: ocupa a altura total da tela */ <br>
+} <br>
+
+.caixa1{ <br>
+    background-color: blue; <br>
+    color: white; <br>
+} <br>
+<p><strong>Resultado:</strong></p>
+<div class="container1">
+  <div class="caixa1">
+    Conteúdo Centralizado
+  </div>
+</div>
+<hr>
+<h2>2. Exemplo com CSS Grid (Excelente alternativa)</h2>
+<p>O Grid oferece uma sintaxe ainda mais concisa para centralização total.</p>
+<p><strong>No HTML:</strong></p>
+&lt;div class="container2"&gt;
+  &lt;div class="caixa"&gt;
+    Conteúdo Centralizado com Grid
+  &lt;/div&gt;
+&lt;/div&gt;
+<p><strong>No CSS:</strong></p>
+<P>
+    .container2 { <br>
+  display: grid; <br>
+  place-items: center; /* Centraliza vertical e horizontalmente */ <br>
+  height: 100vh; <br>
+}
+</P>
+<p><strong>Resultado:</strong></p>
+<div class="container2">
+  <div class="caixa">
+    Conteúdo Centralizado com Grid
+  </div>
+</div>
+
+<hr>
+<h2>3. Com position: absolute e transform (Para casos específicos)</h2>
+<p>Útil quando o elemento precisa ser posicionado absolutamente em relação ao pai.</p>
+<p><strong>No HTML:</strong></p>
+&lt;div class="container"&gt; <br>
+  &lt;div class="caixa"&gt; <br>
+    Conteúdo com Position Absolute
+  &lt;/div&gt; <br>
+&lt;/div&gt; <br>
+<p><strong>No CSS:</strong></p>
+<p>
+    .container { <br>
+  position: relative; /* O pai precisa ser relativo */ <br>
+  height: 100vh; <br>
+} <br>
+
+.caixa { <br>
+  position: absolute; <br>
+  top: 50%; <br>
+  left: 50%; <br>
+  transform: translate(-50%, -50%); /* Ajusta para o centro */ <br>
+} <br>
+</p>
+<p><strong>Resultado:</strong></p>
+<div class="container3">
+  <div class="caixa3">
+    Conteúdo com Position Absolute
+  </div>
+</div>
+<hr>
+<div class="container4">
+  Texto alinhado verticalmente
+</div>
+<p><strong>Dica:</strong>Flexbox e Grid são as soluções mais modernas e flexíveis para centralizar elementos (caixas) em layouts complexos, enquanto line-height ou vertical-align são para alinhamento de conteúdo dentro de uma linha de texto. </p>
+</main>
+</body>
+</html>

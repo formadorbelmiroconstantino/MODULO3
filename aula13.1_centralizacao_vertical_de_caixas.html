@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centralização Vertical de Caixas</title>
+      <style>
+     
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            margin: 20px;
+        }
+        p{
+            text-align: justify;
+        }
+
+        #container{
+            position: relative;
+            height: 500px;
+            background-color: purple;
+            padding: 10px;
+        }
+        #conteudo1{
+            position: absolute;
+            width: 400px;
+            height: 200px;
+            background-color: yellow;
+
+            /*Como estamos a utilizar o position: absolute;, podemos utilizar as duas propreiedades abaixo:*/
+            left: 100px;
+            top: 200px;
+        }
+          #conteudo2{
+            position: absolute;
+            width: 400px;
+            height: 200px;
+            background-color: blue;
+
+            /*Como estamos a utilizar o position: absolute;, podemos utilizar as duas propreiedades abaixo:*/
+            left: 290px;
+            top: 100px;
+        }
+          #conteudo3{
+            position: absolute;
+            width: 400px;
+            height: 200px;
+            background-color: red;
+
+            /*Como estamos a utilizar o position: absolute;, podemos utilizar as duas propreiedades abaixo:*/
+            left: 400px;
+            top: 300px;
+        }
+    </style>
+</head>
+<body>
+<main>
+
+        <h1>Centralização Vertical de Caixas</h1>
+        
+        <section id="container">
+            <div id="conteudo1">
+
+            </div>
+            <div id="conteudo2">
+
+            </div>
+            <div id="conteudo3">
+
+            </div>
+        </section>
+</main>
+</body>
+</html>
