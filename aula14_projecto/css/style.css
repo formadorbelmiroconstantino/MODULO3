@@ -1,14 +1,62 @@
 @charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+html, body{
+    min-height: 100vh; /*Equivale a 100% da viewport v=viewport e h=altura, em ingles*/
+    background-color: darkgray;
+}
+header{
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+header h1{
+    padding-top: 50px;
+    /*text-transform: uppercase; Transformar todas as letras em maiúscula*/
+    font-variant: small-caps; /*Transformar todas as letras em maiúscula, mas as iniciais ficam maiores*/
+}
+header p{
+    padding-bottom: 50px;
+}
+section{
+    padding-top: 10vh; /*10% da altura da viewport*/
+    padding-bottom: 10vh;
+    line-height: 2em; /*Espacamento entre as linhas dos textos*/
+    padding-left: 30px; /*Empurrar os textos a direita para dar uma sensacao de paragrafo*/
+}
+section.normal{
+background-color: white;
+color: black;
+}
+
+section.imagem{
+background-color: rgba(173, 216, 230, 0.452);
+color: white;
+}
+section.imagem p{
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.466); /*Cor preta com uma transparencia de 50%*/
+}
 footer{
     text-align: center;
-    background-color: gray;
-    padding: 10px;
+    background-color: black;
+    padding-top: 10px;
+    color: white;
+    height: 40px; /*Altura do rodape*/
+    line-height: 40px; /*Centralizar na altura do rodape*/
+    margin-top: 10px;
 }
 
-.normal{
-
+header a, footer a{
+    color: lightblue;
+    text-decoration: none;
+    font-weight: bold;
+}
+header a:hover, footer a:hover{
+    text-decoration: underline;
 }
 
-.imagem{
-    
-}
+
