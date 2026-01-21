@@ -11,6 +11,7 @@
 *{
     margin: 0px;
     padding: 0px;
+     font-size: 1em;
 }
 html, body{
     min-height: 100vh; /*Equivale a 100% da viewport v=viewport e h=altura, em ingles*/
@@ -27,6 +28,9 @@ header h1{
     /*text-transform: uppercase; Transformar todas as letras em maiúscula*/
     font-variant: small-caps; /*Transformar todas as letras em maiúscula, mas as iniciais ficam maiores*/
     font-family: var(--fonte2);
+    /* 
+    font-size: 4em; desse jeito, o tamanho das letras sera a mesma independentemente do dispositivo. Mas, o normal e que em dispositivos moveis, o tamanho diminua. A solucao passaria, por enquanto que nao falamos sobre midia query, utilizar em relacao ao tamanho da tela: vw. A linha abaixo faz isso.*/
+     font-size: 10vw; /*Tamanho da fonte em relacao a largura da tela.*/
 }
 header p{
     padding-bottom: 50px;
@@ -37,6 +41,7 @@ section{
     line-height: 2em; /*Espacamento entre as linhas dos textos*/
     padding-left: 30px; /*Empurrar os textos a direita para dar uma sensacao de paragrafo*/
     font-family: var(--fonte3);
+    font-size: 1em;
 }
 section.normal{
 background-color: white;
