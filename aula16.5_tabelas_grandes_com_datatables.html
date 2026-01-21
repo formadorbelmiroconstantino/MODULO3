@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tabela grande + DataTables</title>
+
+    <!-- DataTables (CSS) -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.dataTables.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            padding: 20px;
+        }
+
+        h2 {
+            margin: 0 0 12px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .table-wrap {
+            overflow: auto;
+        }
+
+        table.dataTable tbody tr:hover {
+            background: #eef4ff;
+        }
+
+        .badge {
+            padding: 3px 8px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 12px;
+            display: inline-block;
+        }
+
+        .ativo {
+            background: #e6f7ec;
+            color: #1e7e34;
+        }
+
+        .inativo {
+            background: #fdecea;
+            color: #b21f2d;
+        }
+
+        .pendente {
+            background: #fff4e5;
+            color: #8a5a00;
+        }
+
+        /* força scroll horizontal caso tenha muitas colunas */
+        table {
+            min-width: 1100px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Lista de Utilizadores</h2>
+
+    <div class="card">
+        <div class="table-wrap">
+            <table id="usersTable" class="display nowrap" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Departamento</th>
+                        <th>Cargo</th>
+                        <th>Status</th>
+                        <th>Data Registo</th>
+                        <th>Último Login</th>
+                        <th>Telefone</th>
+                        <th>Cidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- MAIS DADOS (exemplo) -->
+                    <tr>
+                        <td>1</td>
+                        <td>Belmiro Constantino</td>
+                        <td>belmiro@email.com</td>
+                        <td>TI</td>
+                        <td>Administrador</td>
+                        <td><span class="badge ativo">Ativo</span></td>
+                        <td>2025-01-10</td>
+                        <td>2026-01-18</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Luanda</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Maria Silva</td>
+                        <td>maria@email.com</td>
+                        <td>RH</td>
+                        <td>Gestora</td>
+                        <td><span class="badge inativo">Inativo</span></td>
+                        <td>2024-11-02</td>
+                        <td>2025-12-20</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Luanda</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>João Pedro</td>
+                        <td>joao@empresa.com</td>
+                        <td>Financeiro</td>
+                        <td>Analista</td>
+                        <td><span class="badge ativo">Ativo</span></td>
+                        <td>2024-09-15</td>
+                        <td>2026-01-19</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Catumbela</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Ana Paula</td>
+                        <td>ana.paula@empresa.com</td>
+                        <td>Compras</td>
+                        <td>Técnica</td>
+                        <td><span class="badge pendente">Pendente</span></td>
+                        <td>2025-02-01</td>
+                        <td>2026-01-05</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Lubango</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Carlos Mendes</td>
+                        <td>carlos@empresa.com</td>
+                        <td>TI</td>
+                        <td>Programador</td>
+                        <td><span class="badge ativo">Ativo</span></td>
+                        <td>2024-06-21</td>
+                        <td>2026-01-20</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Luanda</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Helena Costa</td>
+                        <td>helena@empresa.com</td>
+                        <td>Jurídico</td>
+                        <td>Assessora</td>
+                        <td><span class="badge ativo">Ativo</span></td>
+                        <td>2023-12-13</td>
+                        <td>2026-01-12</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Benguela</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Paulo André</td>
+                        <td>paulo@empresa.com</td>
+                        <td>Operações</td>
+                        <td>Supervisor</td>
+                        <td><span class="badge pendente">Pendente</span></td>
+                        <td>2025-03-09</td>
+                        <td>2025-12-29</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Saurimo</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Sara Nunes</td>
+                        <td>sara@empresa.com</td>
+                        <td>Marketing</td>
+                        <td>Especialista</td>
+                        <td><span class="badge ativo">Ativo</span></td>
+                        <td>2024-07-30</td>
+                        <td>2026-01-02</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Luanda</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Rui Santos</td>
+                        <td>rui@empresa.com</td>
+                        <td>TI</td>
+                        <td>Suporte</td>
+                        <td><span class="badge inativo">Inativo</span></td>
+                        <td>2024-01-06</td>
+                        <td>2025-10-13</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Uíge</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Teresa Alves</td>
+                        <td>teresa@empresa.com</td>
+                        <td>RH</td>
+                        <td>Recrutadora</td>
+                        <td><span class="badge ativo">Ativo</span></td>
+                        <td>2025-05-17</td>
+                        <td>2026-01-21</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Luanda</td>
+                    </tr>
+
+                    <!-- (mais linhas para simular tabela grande) -->
+                    <tr>
+                        <td>11</td>
+                        <td>Edson Lima</td>
+                        <td>edson@empresa.com</td>
+                        <td>Operações</td>
+                        <td>Analista</td>
+                        <td><span class="badge ativo">Ativo</span></td>
+                        <td>2024-08-03</td>
+                        <td>2026-01-11</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Malanje</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Vera Rocha</td>
+                        <td>vera@empresa.com</td>
+                        <td>Compras</td>
+                        <td>Coordenadora</td>
+                        <td><span class="badge ativo">Ativo</span></td>
+                        <td>2025-01-29</td>
+                        <td>2025-12-28</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Benguela</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Igor Silva</td>
+                        <td>igor@empresa.com</td>
+                        <td>Financeiro</td>
+                        <td>Contabilista</td>
+                        <td><span class="badge pendente">Pendente</span></td>
+                        <td>2024-10-12</td>
+                        <td>2026-01-07</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Luanda</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Cláudia Pinto</td>
+                        <td>claudia@empresa.com</td>
+                        <td>Marketing</td>
+                        <td>Designer</td>
+                        <td><span class="badge ativo">Ativo</span></td>
+                        <td>2023-09-22</td>
+                        <td>2026-01-09</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Huambo</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Bruno Ferreira</td>
+                        <td>bruno@empresa.com</td>
+                        <td>TI</td>
+                        <td>Dev Fullstack</td>
+                        <td><span class="badge ativo">Ativo</span></td>
+                        <td>2024-04-14</td>
+                        <td>2026-01-20</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Luanda</td>
+                    </tr>
+
+                    <tr>
+                        <td>16</td>
+                        <td>Patrícia Gomes</td>
+                        <td>patricia@empresa.com</td>
+                        <td>Jurídico</td>
+                        <td>Assistente</td>
+                        <td><span class="badge inativo">Inativo</span></td>
+                        <td>2024-02-07</td>
+                        <td>2025-09-02</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Lobito</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>Nuno Martins</td>
+                        <td>nuno@empresa.com</td>
+                        <td>Operações</td>
+                        <td>Técnico</td>
+                        <td><span class="badge ativo">Ativo</span></td>
+                        <td>2025-06-03</td>
+                        <td>2026-01-16</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Saurimo</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Débora Araújo</td>
+                        <td>debora@empresa.com</td>
+                        <td>RH</td>
+                        <td>Assistente</td>
+                        <td><span class="badge ativo">Ativo</span></td>
+                        <td>2024-12-24</td>
+                        <td>2026-01-21</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Luanda</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Filipe Sousa</td>
+                        <td>filipe@empresa.com</td>
+                        <td>Financeiro</td>
+                        <td>Analista</td>
+                        <td><span class="badge pendente">Pendente</span></td>
+                        <td>2025-02-26</td>
+                        <td>2026-01-03</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Lubango</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Lídia Correia</td>
+                        <td>lidia@empresa.com</td>
+                        <td>Marketing</td>
+                        <td>Social Media</td>
+                        <td><span class="badge ativo">Ativo</span></td>
+                        <td>2024-05-10</td>
+                        <td>2026-01-14</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Luanda</td>
+                    </tr>
+
+                    <!-- Repete mais se quiser simular 100/500/1000 linhas -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- jQuery (necessário para muitos exemplos clássicos) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- DataTables (JS) -->
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.2/js/dataTables.responsive.min.js"></script>
+
+    <script>
+        $(function () {
+            $('#usersTable').DataTable({
+                // funcionalidades principais
+                paging: true,
+                searching: true,
+                ordering: true,
+                info: true,
+                pageLength: 10,
+                lengthMenu: [[10, 25, 50, 100], [10, 25, 50, 100]],
+
+                // responsivo (oculta colunas e mostra detalhes quando necessário)
+                responsive: true,
+
+                // melhor para tabela larga
+                scrollX: true,
+
+                // idioma PT (pode ajustar à vontade)
+                language: {
+                    search: "Pesquisar:",
+                    lengthMenu: "Mostrar _MENU_ registos",
+                    info: "Mostrando _START_ a _END_ de _TOTAL_ registos",
+                    infoEmpty: "Sem registos",
+                    zeroRecords: "Nenhum resultado encontrado",
+                    paginate: { first: "Primeiro", last: "Último", next: "Seguinte", previous: "Anterior" }
+                },
+
+                // exemplo: ordenar por ID asc ao carregar
+                order: [[0, 'asc']]
+            });
+        });
+    </script>
+</body>
+
+</html>

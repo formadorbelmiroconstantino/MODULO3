@@ -1,0 +1,136 @@
+body{
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  padding: 20px;
+}
+
+h2{
+  margin-bottom: 12px;
+}
+
+/* Container da tabela */
+.table-wrap{
+  max-height: 420px;
+  overflow: auto;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Tabela */
+.table{
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 1100px;
+  table-layout: fixed;
+}
+
+.table th, .table td{
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Cabeçalho fixo */
+.table thead th{
+  position: sticky;
+  top: 0;
+  background: #f9fafb;
+  z-index: 2;
+  font-weight: 600;
+}
+
+/* Linhas zebrada + hover */
+.table tbody tr:nth-child(even){
+  background: #fafafa;
+}
+.table tbody tr:hover{
+  background: #eef4ff;
+}
+
+/* Colunas fixas */
+.sticky-col{
+  position: sticky;
+  left: 0;
+  background: #fff;
+  z-index: 3;
+}
+.sticky-col-2{
+  position: sticky;
+  left: 80px;
+  background: #fff;
+  z-index: 3;
+}
+
+/* Botões */
+.btn{
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #007bff;
+  color: #fff;
+  font-size: 12px;
+}
+.btn.danger{
+  background: #dc3545;
+}
+
+/* Status */
+.badge{
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge.ativo{
+  background: #e6f7ec;
+  color: #1e7e34;
+}
+.badge.inativo{
+  background: #fdecea;
+  color: #b21f2d;
+}
+
+/* RESPONSIVO (mobile vira cartão) */
+@media (max-width: 768px){
+  .table-wrap{
+    max-height: none;
+  }
+
+  .table thead{
+    display: none;
+  }
+
+  .table, .table tbody, .table tr, .table td{
+    display: block;
+    width: 100%;
+  }
+
+  .table tr{
+    margin-bottom: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+  }
+
+  .table td{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
+    white-space: normal;
+  }
+
+  .table td::before{
+    content: attr(data-label);
+    font-weight: 600;
+    color: #555;
+  }
+
+  .sticky-col, .sticky-col-2{
+    position: static;
+  }
+}

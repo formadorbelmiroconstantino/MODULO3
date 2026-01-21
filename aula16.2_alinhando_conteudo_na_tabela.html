@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            margin: 20px;
+        }
+
+        p {
+            text-align: justify;
+        }
+        table {
+  width: 100%;
+  border-collapse: collapse; /*Remove o espaco entre as celulas*/
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  /* Alinhamentos */
+  text-align: center;      /* Horizontal */
+  vertical-align: middle;  /* Vertical - middle e o padrao*/
+}
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Alinhando o Conteúdo em Tabelas</h1>
+       <p>Para alinhar o conteúdo em tabelas HTML, a prática recomendada é utilizar propriedades CSS, pois atributos antigos de HTML (como align ou valign) são considerados obsoletos.</p>
+<hr>
+       <h2>1. Alinhamento Horizontal </h2>
+<p>Utilize a propriedade text-align nas tags &lt;th&gt; ou &lt;td&gt;:</p> 
+<ul>
+    <li>
+        left: Alinha o conteúdo à esquerda (padrão para &lt;td&gt;).
+    </li>
+    <li>
+        center: Centraliza o conteúdo (padrão para &lt;th&gt;).
+    </li>
+    <li>
+        right: Alinha o conteúdo à direita.
+    </li>
+</ul>
+<hr>
+<h2>2. Alinhamento Vertical</h2> 
+<p>Utilize a propriedade vertical-align para controlar a posição do conteúdo em relação à altura da célula:</p>
+<ul>
+    <li>
+        top: Alinha o conteúdo ao topo da célula.
+    </li>
+    <li>
+        middle: Centraliza verticalmente (comportamento padrão na maioria dos navegadores).
+    </li>
+    <li>
+        bottom: Alinha o conteúdo à base da célula.        
+    </li> 
+</ul>
+<hr>
+
+<h2>3. Centralização da Tabela Inteira</h2>
+<p>
+    Para centralizar a tabela como um todo na página, aplique margin: auto ao elemento &lt;table&gt; ou utilize Flexbox no elemento pai com justify-content: center.
+</p>
+
+<h2>Exemplo (HTML):</h2>
+        &lt;table&gt; <br>
+            &lt;th&gt;A&lt;/th&gt; <br>
+            &lt;th&gt;B&lt;/th&gt; <br>
+            &lt;th&gt;C&lt;/th&gt; <br>
+            &lt;tr&gt; <br>
+                &lt;td&gt;A1&lt;/td&gt; <br>
+                &lt;td&gt;B1&lt;/td&gt; <br>
+                &lt;td&gt;C1&lt;/td&gt; <br>
+            &lt;/tr&gt; <br>
+            &lt;tr&gt; <br>
+                &lt;td&gt;A2&lt;/td&gt; <br>
+                &lt;td&gt;B2&lt;/td&gt; <br>
+                &lt;td&gt;C2&lt;/td&gt; <br>
+            &lt;/tr&gt; <br>
+            &lt;tr&gt; <br>
+                &lt;td&gt;A3&lt;/td&gt; <br>
+                &lt;td&gt;B3&lt;/td&gt; <br>
+                &lt;td&gt;C3&lt;/td&gt; <br>
+            &lt;/tr&gt; <br>
+            &lt;tr&gt; <br>
+                &lt;td&gt;A4&lt;/td&gt; <br>
+                &lt;td&gt;B4&lt;/td&gt; <br>
+                &lt;td&gt;C4&lt;/td&gt; <br>
+            &lt;/tr&gt; <br>
+        &lt;/table&gt; <br>
+
+        <h2>Exemplo (CSS):</h2>
+<p>
+    table { <br>
+  width: 100%;
+  border-collapse: collapse; /*Remove o espaco entre as celulas*/<br>
+}
+th, td { <br>
+  border: 1px solid #ccc; <br>
+  padding: 10px; <br>
+  /* Alinhamentos */ <br>
+  text-align: center;      /* Horizontal */ <br>
+  vertical-align: middle;  /* Vertical */ <br>
+}
+</p>
+        <h2>Resultado:</h2>
+        <table>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <tr>
+                <td>A1</td>
+                <td>B1</td>
+                <td>C1</td>
+            </tr>
+            <tr>
+                <td>A2</td>
+                <td>B2</td>
+                <td>C2</td>
+            </tr>
+            <tr>
+                <td>A3</td>
+                <td>B3</td>
+                <td>C3</td>
+            </tr>
+            <tr>
+                <td>A4</td>
+                <td>B4</td>
+                <td>C4</td>
+            </tr>
+        </table>
+    <p><strong>Observação:</strong> Para layouts mais complexos ou responsivos, você pode explorar o uso de CSS Flexbox ou Grid para organizar o conteúdo interno das células.</p>
+    </main>
+</body>
+</html>

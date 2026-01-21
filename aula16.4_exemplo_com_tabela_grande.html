@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabela de Grandes Dados 2026</title>
+    <style>
+        /* Container para permitir scroll lateral em telas pequenas */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            max-height: 500px; /* Altura fixa para demonstrar o scroll vertical */
+            border: 1px solid #ccc;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        /* Cabeçalho Fixo (Sticky) */
+        thead th {
+            position: sticky;
+            top: 0;
+            background-color: #007bff;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            z-index: 10;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            min-width: 150px; /* Garante que as colunas não esmaguem */
+        }
+
+        /* Efeito Zebrado (Zebra Striping) */
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Destaque ao passar o mouse */
+        tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+<h1>Trabalhando com tabelas grandes</h1>
+    <h2>Relatório de Vendas 2026</h2>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">ID do Pedido</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Produto</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Valor (AOA)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Exemplo de Linhas -->
+                <tr>
+                    <td>#10293</td>
+                    <td>Belmiro Constantino</td>
+                    <td>Smartphone Pro Max</td>
+                    <td>21/01/2026</td>
+                    <td>Entregue</td>
+                    <td>5.499,00</td>
+                </tr>
+                <tr>
+                    <td>#10294</td>
+                    <td>Bruno Costa</td>
+                    <td>Monitor UltraWide 34"</td>
+                    <td>21/01/2026</td>
+                    <td>Pendente</td>
+                    <td>3.200,00</td>
+                </tr>
+                <tr>
+                    <td>#10295</td>
+                    <td>Carla Souza</td>
+                    <td>Notebook Gamer v10</td>
+                    <td>20/01/2026</td>
+                    <td>Entregue</td>
+                    <td>8.150,00</td>
+                </tr>
+                <!-- Imagine centenas de linhas aqui -->
+                <tr>
+                    <td>#10296</td>
+                    <td>Diego Lima</td>
+                    <td>Cadeira Ergonômica</td>
+                    <td>20/01/2026</td>
+                    <td>Cancelado</td>
+                    <td>1.200,00</td>
+                </tr>
+                <tr>
+                    <td>#10297</td>
+                    <td>Elena Rocha</td>
+                    <td>Teclado Mecânico RGB</td>
+                    <td>19/01/2026</td>
+                    <td>Entregue</td>
+                    <td>450,00</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr style="background: #eee; font-weight: bold;">
+                    <td colspan="5">Total Acumulado das Vendas da ITFocursos em 2026</td>
+                    <td>18.499,00</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+<h3>O que este exemplo resolve:</h3>
+<ol>
+    <li>
+        position: sticky no thead: Resolve o problema de perder o contexto das colunas ao rolar para baixo em listas gigantes.
+    </li>
+    <li>
+        .table-container com overflow-x: auto: Impede que a tabela quebre o layout do seu site em telemóveis, criando uma barra de rolagem horizontal apenas para os dados.
+    </li>
+    <li>
+        nth-child(even): Melhora a escaneabilidade visual, ajudando o olho a seguir a linha correcta em tabelas muito largas.
+    </li>
+    <li>
+        min-width nas células: Evita que o conteúdo fique "espremido" quando houver muitas colunas.
+    </li>
+</ol>
+<p>Se você precisar lidar com milhões de linhas, o próximo passo seria implementar o DataTables para adicionar filtros de busca e paginação automática via JavaScript.</p>
+</body>
+</html>

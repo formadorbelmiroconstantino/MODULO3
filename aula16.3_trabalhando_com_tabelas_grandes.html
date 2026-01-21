@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            margin: 20px;
+        }
+
+        p {
+            text-align: justify;
+        }
+       
+        thead th {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Aprendendo a Trabalhar com Tabelas Grandes</h1>
+       <p>Para trabalhar com tabelas grandes em HTML de forma eficiente em 2026, o foco deve ser na performance e na experiência do usuário (UX). Aqui estão as estratégias essenciais:</p>
+<hr>
+
+<h2>1. Estrutura Semântica Correta</h2>
+<p>Use as tags &lt;thead&gt;, &lt;tbody&gt; e &lt;tfoot&gt;. Isso permite que o navegador renderize o cabeçalho e o rodapé separadamente do corpo, facilitando a rolage:</p>
+<h3>No HTML</h3>
+<table>
+  <thead>
+    <tr><th>ID</th><th>Nome</th></tr>
+  </thead>
+  <tbody>
+    <!-- Milhares de linhas aqui -->
+     <table border="1">
+         <tr><td>Dados</td>
+            <td>Dados</td></tr>
+           <tr><td>Dados</td><td>Dados</td></tr>
+     </table>
+  </tbody>
+</table>
+
+    </main>
+</body>
+</html>
