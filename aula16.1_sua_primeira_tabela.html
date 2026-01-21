@@ -15,8 +15,20 @@
         p {
             text-align: justify;
         }
-        .table{ /*Desse jeito, nao vai dar as bordas que queremos. Para tal, teremos de utilizar o atributo border="1" na tag  <table> depois da palavra table.*/
+        .table{ /*Desse jeito, nao vai dar as bordas que queremos. Para tal, teremos de utilizar o atributo border="1" na tag  <table> depois da palavra table ou border:1px solid cor no estilo da td.*/
+            /*border: 1px solid black;*/
+            width: 500px;
+            border-collapse:collapse; /*Para remover as linhas duplicadas nas borders.*/
+        }
+
+        td{
             border: 1px solid black;
+            padding: 8px;
+        }
+        th{
+            border: 1px solid black;
+            padding: 8px;
+            background-color: lightgray;
         }
     </style>
 </head>
