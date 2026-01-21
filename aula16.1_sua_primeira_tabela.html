@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            margin: 20px;
+        }
+
+        p {
+            text-align: justify;
+        }
+        .table{ /*Desse jeito, nao vai dar as bordas que queremos. Para tal, teremos de utilizar o atributo border="1" na tag  <table> depois da palavra table.*/
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Sua Primeira Tabela em HTML</h1>
+        <!--
+        ESTRUTURA BASICA DE TABELA
+        
+        TABLE = TABELA
+        TABLE HEADE = CABECALHO DA TABELA - TH
+        TABLE ROW = LINHA DA TABELA - TR
+        TABLE DATA = DADO DA TABELA - TD
+        -->
+        <table class="table">
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <tr>
+                <td>A1</td>
+                <td>B1</td>
+                <td>C1</td>
+            </tr>
+            <tr>
+                <td>A2</td>
+                <td>B2</td>
+                <td>C2</td>
+            </tr>
+            <tr>
+                <td>A3</td>
+                <td>B3</td>
+                <td>C3</td>
+            </tr>
+            <tr>
+                <td>A4</td>
+                <td>B4</td>
+                <td>C4</td>
+            </tr>
+        </table>
+    </main>
+</body>
+</html>

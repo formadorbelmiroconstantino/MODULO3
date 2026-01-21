@@ -36,3 +36,4 @@ Aula 18 - Colocando as Fontes ao Projecto - Duas fontes do Google Fonts: Passion
 Aula 19 - Imagens com Efeito Parallax Simples
 Aula 20 - Hospedando o Projecto Cordel Gratuitamente (Siga os passos da aula sobre hospedagem de site - No VSCode Aula 7, Hospedando Site com o GitHub Pages)
 Aula 21 - Ainda Podemos usar Tabelas em HTML?
+Aula 21.1 - Sua Primeira Tabela em HTML
