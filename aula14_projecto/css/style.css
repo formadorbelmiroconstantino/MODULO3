@@ -43,19 +43,37 @@ section{
     font-family: var(--fonte3);
     font-size: 1em;
 }
+section p{
+    padding-bottom: 2em; /*Para dar um espaco entre os paragrafos seguidos*/
+    padding: 10px;
+}
 section.normal{
 background-color: white;
 color: black;
 }
-
 section.imagem{
 background-color: rgba(173, 216, 230, 0.452);
 color: white;
+box-shadow: inset 6px 6px 13px 0px rgba(0, 0, 0, 0.479); /*inset e para a sombra ser interna ao elemento e nao externa.*/
+background-attachment: fixed; /*Efeito paralax, fixar a imagem*/
 }
 section.imagem p{
     width: 400px;
     background-color: rgba(0, 0, 0, 0.466); /*Cor preta com uma transparencia de 50%*/
+    text-shadow: 1px 2px 0px rgba(0, 0, 0, 0.479);
+border-radius: 10px;
 }
+section#img01{
+ background-image: url('../img/background001.jpg'); 
+ background-position: right center;  /*Posicionar a imagem a direita pela horizontal e a centro pela vertical*/
+ background-size: cover; /*Essa linha foi repetida na linha de baixo. Poderiamos utilizar so uma em section.imagem por ser tambem para a img*/
+}
+section#img02{
+background-image: url('../img/background002.jpg');
+background-position: left center;
+background-size: cover;
+}
+
 footer{
     text-align: center;
     background-color: black;
