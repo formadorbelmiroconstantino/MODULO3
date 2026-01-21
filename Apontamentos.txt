@@ -34,3 +34,4 @@ Aula 16 - Ajustes no HTML do Projecto
 Aula 17 - Ajustes no CSS do Projecto
 Aula 18 - Colocando as Fontes ao Projecto - Duas fontes do Google Fonts: Passion One e Roboto
 Aula 19 - Imagens com Efeito Parallax Simples
+Aula 20 - Hospedando o Projecto Cordel Gratuitamente (Siga os passos da aula sobre hospedagem de site - No VSCode Aula 7, Hospedando Site com o GitHub Pages)
