@@ -31,3 +31,5 @@ Projecto
 Aula 14 - Projecto completo usando HTML e CSS - Apresentação do Projecto
 Aula 15 - Download e Organização dos Arquivos
 Aula 16 - Ajustes no HTML do Projecto
+Aula 17 - Ajustes no CSS do Projecto
+Aula 18 - Colocando as Fontes ao Projecto - Duas fontes do Google Fonts: Passion One e Roboto

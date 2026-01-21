@@ -1,4 +1,12 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Gravitas+One&family=Passion+One:wght@400;700;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --fonte1: Verdana, Geneva, Tahoma, sans-serif;
+    --fonte2: "Passion One", sans-serif;
+    --fonte3: "Roboto", sans-serif;
+}
 
 *{
     margin: 0px;
@@ -7,16 +15,18 @@
 html, body{
     min-height: 100vh; /*Equivale a 100% da viewport v=viewport e h=altura, em ingles*/
     background-color: darkgray;
+    font-family: var(--fonte1);
 }
 header{
     background-color: black;
     color: white;
-    text-align: center;
+    text-align: center; 
 }
 header h1{
     padding-top: 50px;
     /*text-transform: uppercase; Transformar todas as letras em maiúscula*/
     font-variant: small-caps; /*Transformar todas as letras em maiúscula, mas as iniciais ficam maiores*/
+    font-family: var(--fonte2);
 }
 header p{
     padding-bottom: 50px;
@@ -26,6 +36,7 @@ section{
     padding-bottom: 10vh;
     line-height: 2em; /*Espacamento entre as linhas dos textos*/
     padding-left: 30px; /*Empurrar os textos a direita para dar uma sensacao de paragrafo*/
+    font-family: var(--fonte3);
 }
 section.normal{
 background-color: white;
