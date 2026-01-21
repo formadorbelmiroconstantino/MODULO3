@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            margin: 20px;
+        }
+
+        p {
+            text-align: justify;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+
+        <h1>Ainda podemos usar tabelas em HTML?</h1>
+        <p>Sim, ainda podemos e devemos usar tabelas em HTML, mas exclusivamente para apresentar dados tabulares (linhas
+            e colunas), como calendários, listas de preços ou cadastros, e não mais para organizar o layout da página,
+            uma prática antiga e incorreta que foi substituída por CSS (Flexbox e Grid). Tabelas HTML são ótimas para
+            clareza e acessibilidade quando o objetivo é exibir informações estruturadas.</p>
+
+        <h2>Quando usar tabelas:</h2>
+
+        <ul>
+            <li>
+                Dados Estruturados: Para exibir informações que naturalmente se encaixam em linhas e colunas, como:</li>
+            <ul>
+                <li>Planilhas financeiras.</li>
+                <li>
+                    Horários e calendários.</li>
+                <li>
+                    Comparativos de produtos.</li>
+                <li>
+                    Listas de usuários ou informações de eventos.
+                </li>
+            </ul>
+
+            <h2>Quando NÃO usar tabelas:</h2>
+            <ul>
+                <li>Layout da Página: Para posicionar elementos visuais (como menus, barras laterais, etc.). Isso deve
+                    ser feito com CSS (Flexbox, Grid) para melhor acessibilidade e manutenção.</li>
+            </ul>
+
+            <h2>Principais Tags para Tabelas:</h2>
+            <p>As tags principais para tabelas em HTML são
+            &lt;table&gt; (a tabela em si), &lt;tr&gt; (linha da tabela), &lt;td&gt; (célula de dados) e
+                    &lt;th&gt; (célula de cabeçalho), que estruturam o conteúdo, com &lt;thead&gt;,
+                        &lt;tbody&gt;,
+                        &lt;tfoot&gt; e &lt;caption&gt; adicionando semântica e título, respectivamente, para organizar o cabeçalho,
+                                corpo, rodapé e título da tabela. </p>
+
+                                <h2>Tags da Estrutura Básica</h2>
+                                <ul>
+                                    <li>
+                                        &lt;table&gt;: O contêiner principal da tabela.
+                                    </li>
+                                    <li>
+                                        &lt;tr&gt;: Define uma linha (Table Row).
+                                    </li>
+                                    <li>
+                                        &lt;th&gt;: Define uma célula de cabeçalho (Table Header).
+                                    </li>
+                                    <li>
+                                        &lt;td&gt;: Define uma célula de dados (Table Data).
+                                    </li>
+                                    Em resumo, use tabelas para dados, não para design, aproveitando o poder do HTML
+                                    para estruturar e do CSS para estilizar.
+                                </ul>
+
+                                <h2>Tags de Semântica e Título (HTML5)</h2>
+                                <ul>
+                                    <li>
+                                        &lt;thead&gt;: Agrupa o conteúdo do cabeçalho da tabela.
+                                    </li>
+                                    <li>
+                                        &lt;tbody&gt;: Agrupa o conteúdo do corpo principal da tabela.
+                                    </li>
+                                    <li>
+                                        &lt;tfoot&gt;: Agrupa o conteúdo do rodapé da tabela (resumos, totais).
+                                    </li>
+                                    <li>
+                                        &lt;caption&gt;: Adiciona um título ou legenda à tabela, posicionada dentro das
+                                        tags &lt;table&gt;.
+                                    </li>
+                                </ul>
+    </main>
+</body>
+
+</html>
