@@ -278,7 +278,7 @@ table{
 </p>
 
 <p>
-No HTML com CSS Interno <br><br>
+No HTML<br><br>
 
  &lt;div class="card"&gt; <br>
         &lt;div class="table-wrap"&gt; <br>
@@ -832,7 +832,8 @@ No HTML com CSS Interno <br><br>
         }); <br>
     &lt;/script&gt; <br>
 </p>
-    <h2><strong>Resultado: </strong>Lista de Utilizadores</h2>
+
+<h2><strong>Resultado: </strong>Lista de Utilizadores</h2>
 
     <div class="card">
         <div class="table-wrap">
@@ -1405,8 +1406,183 @@ No HTML com CSS Interno <br><br>
         Responsivo (quando apertar, ele organiza as colunas)
     </li>
 </ul>
+<hr>
+<p>
+    No style.css <br><br>
+    /* Define a fonte padrão da página, cor de fundo e espaçamento interno */ <br>
+body{ <br>
+  font-family: Arial, sans-serif; /* Fonte simples e legível */ <br>
+  background:#f4f6f9;            /* Cor de fundo clara (layout admin) */ <br>
+  padding:20px;                  /* Espaço interno em toda a página */ <br>
+} <br>
 
-<p><strong>Resultado:</strong></p>
+/* Estilo do título */ <br>
+h2{ <br>
+  margin:0 0 12px;               /* Espaço inferior para separar da tabela */ <br>
+} <br>
+
+/* Cartão que envolve a tabela */ <br>
+.card{ <br>
+  background:#fff;               /* Fundo branco */ <br>
+  border:1px solid #ddd;         /* Borda cinza clara */ <br>
+  border-radius:10px;            /* Cantos arredondados */ <br>
+  padding:14px;                  /* Espaço interno */ <br>
+} <br>
+
+/* Container responsável pelo scroll */ <br>
+.table-wrap{ <br>
+  overflow:auto;                 /* Ativa scroll vertical e horizontal */ <br>
+} <br>
+
+/* Efeito visual ao passar o mouse nas linhas */ <br>
+table.dataTable tbody tr:hover{ <br>
+  background:#eef4ff;            /* Azul claro no hover */ <br>
+} <br>
+
+/* Estilo base para etiquetas de status */ <br>
+.badge{ <br>
+  padding:3px 8px;               /* Espaçamento interno */ <br>
+  border-radius:999px;           /* Forma arredondada (pill) */ <br>
+  font-weight:700;               /* Texto em negrito */ <br>
+  font-size:12px;                /* Tamanho pequeno */ <br>
+  display:inline-block;          /* Permite padding funcionar corretamente */ <br>
+} <br>
+
+/* Status ACTIVO */ <br>
+.activo{ <br>
+  background:#e6f7ec;            /* Fundo verde claro */ <br>
+  color:#1e7e34;                 /* Texto verde escuro */ <br>
+} <br>
+
+/* Status INACTIVO */ <br>
+.inactivo{ <br>
+  background:#fdecea;            /* Fundo vermelho claro */ <br>
+  color:#b21f2d;                 /* Texto vermelho escuro */ <br>
+} <br>
+
+/* Status PENDENTE */<br>
+.pendente{<br>
+  background:#fff4e5;    /* Fundo laranja claro */<br>
+  color:#8a5a00;        /* Texto laranja escuro */<br>
+}<br>
+
+/* Força largura mínima da tabela<br>
+   (ativa scroll horizontal quando a tela é menor) */<br>
+table{<br>
+  min-width:1100px;  /* Garante que colunas não fiquem esmagadas <br>*/<br>                             
+} 
+
+</p>
+<p><strong>Por que esse CSS é importante para tabelas grandes?</strong></p>
+
+<h5>Legibilidade</h5>
+
+<ul>
+    <li>
+        Fonte simples
+    </li>        
+    <li>
+        Linhas destacadas no hover
+    </li>        
+    <li>
+        Cores suaves (menos cansaço visual)
+    </li>    </li>
+</ul>
+
+<h5>Usabilidade</h5>
+
+<ul>
+    <li>
+        Scroll automático quando necessário
+    </li>        
+    <li>
+        Layout em “cartão” (.card) comum em sistemas profissionais
+    </li>        
+    <li>
+        Status visual fácil de identificar (badges)
+    </li>
+</ul>
+
+<h5>Performance visual</h5>
+
+<ul>
+    <li>
+    <li>
+        Nada pesado (sem sombras exageradas ou animações)
+    </li>        
+    <li>
+        Ideal para admin, ERP e dashboards
+    </li>    </li>
+</ul>
+
+<h3>Dica Didáctica</h3>
+
+<p>Se um dia pensar em ser formador, você poderá ensinar isso em módulos:</p>
+
+<ol>
+    <li>
+        Estrutura HTML da tabela
+    </li>
+    <li>
+        Container com overflow
+    </li>
+    <li>
+        Estilização profissional
+    </li>
+    <li>
+        Integração com DataTables
+    </li>
+    <li>
+        Performance (paginação server-side)
+    </li>
+</ol>
+
+<p>Agora vamos comentar o JavaScript linha por linha, explicando o que o DataTables faz, por que cada opção existe e quando usar em sistemas reais (ERP / dashboards).</p>
+
+<p>Vamos utilizar o mesmo código do exemplo anterior</p>
+<p>&lt;script&gt;: Início do bloco JavaScript.</p>
+<p>$(function (){: Atalho do jQuery para “quando o documento estiver pronto”
+é o mesmo que: $(document).ready(function(){ <br>
+Garante que o HTML da tabela já foi carregado antes de aplicar o DataTables.
+</p>
+<p>$('#usersTable').DataTable({: Selecciona a tabela com id="usersTable" e activa o DataTables nela. A partir daqui, tudo dentro de {} são configurações.</p>
+<p><strong>Funcionalidades Básicas sobre as configurações</strong></p>
+<p>paging: true,: Activa a paginação automática (páginas 1, 2, 3…).</p>
+<p>searching: true,: Activa a caixa de pesquisa (filtra em tempo real).</p>
+<p>ordering: true,: Permite ordenar clicando no cabeçalho das colunas.</p>
+<p>info: true,: Mostra o texto: “Mostrando 1 a 10 de 200 registos”</p>
+<p>pageLength: 10,: Define quantas linhas aparecem por página inicialmente.</p>
+<p>lengthMenu: [ [10, 25, 50, 100], [10, 25, 50, 100] ],: Define as opções do selector: Mostrar 10 | 25 | 50 | 100 registos</p>
+<p><strong>Responsividade</strong></p>
+<p>responsive: true,: Activa o modo responsivo do DataTables.</p>
+<ul>
+    <li>
+Em telas pequenas:
+<ul>
+    <li>
+        Algumas colunas serão ocultadas
+    </li>
+    <li>
+        Um botão “+ ou outro dependo de...” aparece para ver os detalhes da linha
+    </li>
+</ul>
+    </li>
+</ul>
+<p>scrollX: true,: Activa scroll horizontal automático. Essencial quando há muitas colunas.</p>
+<p><strong>Idioma</strong></p>
+<p>language: {: Bloco responsável pelos textos exibidos na tabela.</p>
+<p>search: "Pesquisar:",: Texto ao lado da caixa de pesquisa.</p>
+<p>lengthMenu: "Mostrar _MENU_ registos",: Texto informativo inferior. _START_, _END_, _TOTAL_ são variáveis automáticas do DataTables.</p>
+<p>infoEmpty: "Sem registos",: Texto quando a tabela está vazia.</p>
+<p>zeroRecords: "Nenhum resultado encontrado",: Texto quando a pesquisa não retorna resultados.</p>
+<p>paginate: { <br>
+        first:"Primeiro", <br>
+        last:"Último", <br>
+        next:"Seguinte", <br>
+        previous:"Anterior" <br>
+      }: Tradução dos botões de paginação.</p>
+      <p><strong>Ordenação Inicial</strong></p>
+      <p>    order: [[0, 'asc']]: Define a ordenação inicial: 0 → índice da coluna (ID) <br> 'asc' → crescente <br>Exemplo: order: [[6, 'desc']] // ordena por data e não se esqueça que é JS
+</p>
 </body>
-
 </html>
