@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DataTables Server-side (PHP + MySQL)</title>
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.dataTables.min.css">
+
+  <style>
+    body{font-family:Arial,sans-serif;background:#f4f6f9;padding:20px;}
+    .card{background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px;}
+    table{min-width:1100px;}
+    .badge{padding:3px 8px;border-radius:999px;font-weight:700;font-size:12px;display:inline-block;}
+    .ativo{background:#e6f7ec;color:#1e7e34;}
+    .inativo{background:#fdecea;color:#b21f2d;}
+    .pendente{background:#fff4e5;color:#8a5a00;}
+  </style>
+</head>
+<body>
+  <h2>Utilizadores (Server-side)</h2>
+
+  <div class="card">
+    <table id="usersTable" class="display nowrap" style="width:100%">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Departamento</th>
+          <th>Cargo</th>
+          <th>Status</th>
+          <th>Data Registo</th>
+          <th>Último Login</th>
+          <th>Telefone</th>
+          <th>Cidade</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/3.0.2/js/dataTables.responsive.min.js"></script>
+
+  <script>
+    $(function () {
+      $('#usersTable').DataTable({
+        serverSide: true,     // ✅ ativa server-side
+        processing: true,     // ✅ mostra “processando...”
+        responsive: true,
+        scrollX: true,
+        pageLength: 10,
+        lengthMenu: [[10,25,50,100],[10,25,50,100]],
+
+        ajax: {
+          url: 'users_server.php',
+          type: 'POST'
+        },
+
+        // Diz ao DataTables como mapear campos do JSON (data)
+        columns: [
+          { data: 'id' },
+          { data: 'nome' },
+          { data: 'email' },
+          { data: 'departamento' },
+          { data: 'cargo' },
+          {
+            data: 'status',
+            render: function (data) {
+              // transforma texto em badge (só visual)
+              if (data === 'Ativo')   return '<span class="badge ativo">Ativo</span>';
+              if (data === 'Inativo') return '<span class="badge inativo">Inativo</span>';
+              return '<span class="badge pendente">Pendente</span>';
+            }
+          },
+          { data: 'data_registo' },
+          { data: 'ultimo_login' },
+          { data: 'telefone' },
+          { data: 'cidade' }
+        ],
+
+        language: {
+          search: "Pesquisar:",
+          lengthMenu: "Mostrar _MENU_ registos",
+          info: "Mostrando _START_ a _END_ de _TOTAL_ registos",
+          infoEmpty: "Sem registos",
+          zeroRecords: "Nenhum resultado encontrado",
+          processing: "A processar...",
+          paginate: { first:"Primeiro", last:"Último", next:"Seguinte", previous:"Anterior" }
+        },
+
+        order: [[0, 'desc']]
+      });
+    });
+  </script>
+</body>
+</html>

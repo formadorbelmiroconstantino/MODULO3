@@ -1347,45 +1347,7 @@ No HTML<br><br>
         </div>
     </div>
 
-    <!-- jQuery (necessário para muitos exemplos clássicos) -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-    <!-- DataTables (JS) -->
-    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/3.0.2/js/dataTables.responsive.min.js"></script>
-
-    <script>
-        $(function () {
-            $('#usersTable').DataTable({
-                // funcionalidades principais
-                paging: true,
-                searching: true,
-                ordering: true,
-                info: true,
-                pageLength: 10,
-                lengthMenu: [[10, 25, 50, 100], [10, 25, 50, 100]],
-
-                // responsivo (oculta colunas e mostra detalhes quando necessário)
-                responsive: true,
-
-                // melhor para tabela larga
-                scrollX: true,
-
-                // idioma PT (pode ajustar à vontade)
-                language: {
-                    search: "Pesquisar:",
-                    lengthMenu: "Mostrar _MENU_ registos",
-                    info: "Mostrando _START_ a _END_ de _TOTAL_ registos",
-                    infoEmpty: "Sem registos",
-                    zeroRecords: "Nenhum resultado encontrado",
-                    paginate: { first: "Primeiro", last: "Último", next: "Seguinte", previous: "Anterior" }
-                },
-
-                // exemplo: ordenar por ID asc ao carregar
-                order: [[0, 'asc']]
-            });
-        });
-    </script>
+    
 
     <h3>O que ganhamos com isso (tipo “DataTables”)</h3>
 
@@ -1584,5 +1546,129 @@ Em telas pequenas:
       <p><strong>Ordenação Inicial</strong></p>
       <p>    order: [[0, 'asc']]: Define a ordenação inicial: 0 → índice da coluna (ID) <br> 'asc' → crescente <br>Exemplo: order: [[6, 'desc']] // ordena por data e não se esqueça que é JS
 </p>
+<p>});: Fecha a configuração do DataTables.</p>
+<p>});: Fecha o $(document).ready().</p>
+<p>&lt;/script&gt;: Fim do bloco JavaScript.</p>
+<p><strong>Resumo</strong></p>
+
+<div class="card">
+        <div class="table-wrap">
+            <table id="usersTable2" class="display nowrap" style="width:100%">
+    <thead>
+        <tr>
+            <th>Conceito</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>O que faz $(function(){})?:</td>
+            <td>Espera o HTML carregar</td>
+        </tr>
+         <tr>
+            <td>O que faz DataTable()?</td>
+            <td>Transforma tabela comum em tabela dinâmica</td>
+        </tr>
+         <tr>
+            <td>O que faz paging??</td>
+            <td>Paginação</td>
+        </tr>
+         <tr>
+            <td>O que faz searching?</td>
+            <td>Pesquisa</td>
+        </tr>
+         <tr>
+            <td>O que faz ordering?</td>
+            <td>Activa/Garante a Ordenação dos Dados</td>
+        </tr>
+         <tr>
+            <td>O que faz scrollX?</td>
+            <td>Activa o Scroll horizontal</td>
+        </tr>
+         <tr>
+            <td>O que faz responsive?</td>
+            <td>Ativa o modo responsivo do DataTables. Algumas colunas são ocultadas e activa um botão à esquerda.</td>
+        </tr>
+         <tr>
+            <td>O que faz language?</td>
+            <td>Traduz as funcionalidades do DataTables</td>
+        </tr>
+         <tr>
+            <td>O que faz order?</td>
+            <td>Exibe a ordenação inicial</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+
+<!-- jQuery (necessário para muitos exemplos clássicos) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- DataTables (JS) -->
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.2/js/dataTables.responsive.min.js"></script>
+
+    <script>
+        $(function () {
+            $('#usersTable').DataTable({
+                // funcionalidades principais
+                paging: true,
+                searching: true,
+                ordering: true,
+                info: true,
+                pageLength: 10,
+                lengthMenu: [[10, 25, 50, 100], [10, 25, 50, 100]],
+
+                // responsivo (oculta colunas e mostra detalhes quando necessário)
+                responsive: true,
+
+                // melhor para tabela larga
+                scrollX: true,
+
+                // idioma PT (pode ajustar à vontade)
+                language: {
+                    search: "Pesquisar:",
+                    lengthMenu: "Mostrar _MENU_ registos",
+                    info: "Mostrando _START_ a _END_ de _TOTAL_ registos",
+                    infoEmpty: "Sem registos",
+                    zeroRecords: "Nenhum resultado encontrado",
+                    paginate: { first: "Primeiro", last: "Último", next: "Seguinte", previous: "Anterior" }
+                },
+
+                // exemplo: ordenar por ID asc ao carregar
+                order: [[0, 'asc']]
+            });
+
+            $('#usersTable2').DataTable({
+                // funcionalidades principais
+                paging: true,
+                searching: true,
+                ordering: true,
+                info: true,
+                pageLength: 10,
+                lengthMenu: [[10, 25, 50, 100], [10, 25, 50, 100]],
+
+                // responsivo (oculta colunas e mostra detalhes quando necessário)
+                responsive: true,
+
+                // melhor para tabela larga
+                scrollX: true,
+
+                // idioma PT (pode ajustar à vontade)
+                language: {
+                    search: "Pesquisar:",
+                    lengthMenu: "Mostrar _MENU_ registos",
+                    info: "Mostrando _START_ a _END_ de _TOTAL_ registos",
+                    infoEmpty: "Sem registos",
+                    zeroRecords: "Nenhum resultado encontrado",
+                    paginate: { first: "Primeiro", last: "Último", next: "Seguinte", previous: "Anterior" }
+                },
+
+                // exemplo: ordenar por ID asc ao carregar
+                order: [[0, 'asc']]
+            });
+        });
+    </script>
 </body>
 </html>
