@@ -23,7 +23,47 @@
   z-index: 1;
 }
 
+/**/
+/* Container para permitir scroll lateral em telas pequenas */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            max-height: 500px; /* Altura fixa para demonstrar o scroll vertical */
+            border: 1px solid #ccc;
+        }
 
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        /* Cabeçalho Fixo (Sticky) */
+        thead th {
+            position: sticky;
+            top: 0;
+            background-color: #007bff;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            z-index: 10;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            min-width: 150px; /* Garante que as colunas não esmaguem */
+        }
+
+        /* Efeito Zebrado (Zebra Striping) */
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Destaque ao passar o mouse */
+        tbody tr:hover {
+            background-color: #f1f1f1;
+        }
     </style>
 </head>
 
@@ -33,23 +73,243 @@
        <p>Para trabalhar com tabelas grandes em HTML de forma eficiente em 2026, o foco deve ser na performance e na experiência do usuário (UX). Aqui estão as estratégias essenciais:</p>
 <hr>
 
-<h2>1. Estrutura Semântica Correta</h2>
+<h2>1. Estrutura Semântica Correcta</h2>
 <p>Use as tags &lt;thead&gt;, &lt;tbody&gt; e &lt;tfoot&gt;. Isso permite que o navegador renderize o cabeçalho e o rodapé separadamente do corpo, facilitando a rolage:</p>
 <h3>No HTML</h3>
-<table>
+<table border="1">
   <thead>
-    <tr><th>ID</th><th>Nome</th></tr>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+    </tr>
   </thead>
   <tbody>
     <!-- Milhares de linhas aqui -->
-     <table border="1">
-         <tr><td>Dados</td>
-            <td>Dados</td></tr>
-           <tr><td>Dados</td><td>Dados</td></tr>
-     </table>
+    
+         <tr>
+            <td>Dados</td>
+            <td>Dados</td>
+        </tr>
+        <tr>
+            <td>Dados</td>
+            <td>Dados</td>
+        </tr>
+
   </tbody>
 </table>
+<hr>
+<h2>2. Cabeçalhos Fixos (Sticky Headers)</h2>
+<p>Para tabelas longas, o usuário perde a referência das colunas ao rolar. Use CSS para manter o cabeçalho visível.</p>
+<p>
+    thead th { <br>
+  position: sticky; <br>
+  top: 0; <br>
+  background-color: #fff; <br>
+  z-index: 1; <br>
+}
+</p>
 
-    </main>
+<p><strong>Resultado:</strong></p>
+
+<h2>3. Virtualização de Dados (Para Performance)</h2>
+<p>Se a tabela tiver mais de 1.000 linhas, renderizar tudo de uma vez travará o navegador. A Virtualização renderiza apenas as linhas visíveis na tela. </p>
+<ul>
+    <li>Recomendação: Use bibliotecas como TanStack Table (antigo React Table) ou AG Grid para gerenciar grandes volumes de dados com suavidade.
+    </li>
+</ul>
+<h2>4. Paginação vs. Rolagem Infinita</h2>
+<ul>
+    <li>
+        Paginação: Ideal para buscas específicas e precisão. Reduz a carga inicial do servidor.
+    </li>
+     <li>
+        Rolagem Infinita: Melhor para exploração rápida, mas pode dificultar o acesso ao rodapé da página.
+    </li>
+</ul> 
+<h2>5. Design Responsivo</h2>
+<p>Tabelas largas não cabem em celulares. Use a propriedade overflow-x: auto em um elemento pai (div) para permitir o deslize lateral sem quebrar o layout do site.</p>
+<h2>6. Atributos de Acessibilidade</h2>
+<p>
+    Sempre use o atributo scope nas tags <th> para que leitores de tela identifiquem corretamente se o cabeçalho é de uma linha (row) ou coluna (col).
+</p> 
+<p>
+    Para ferramentas de manipulação avançada, você pode explorar o DataTables (jQuery/JS), que oferece busca e ordenação nativas para tabelas HTM
+</p>
+
+<hr>
+
+<h2>Exemplo de uma Tabela Grande</h2>
+<p>
+    Aqui está um exemplo funcional de uma tabela estruturada para grandes volumes de dados. Este modelo utiliza cabeçalho fixo, efeito zebrado para facilitar a leitura e responsividade para dispositivos móveis.
+</p>
+    <h3>Relatório de Vendas de 2026 da ITFocursos</h3>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">ID do Pedido</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Produto</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Valor (AOA)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Exemplo de Linhas -->
+                <tr>
+                    <td>#10293</td>
+                    <td>Belmiro Constantino</td>
+                    <td>Smartphone Pro Max</td>
+                    <td>21/01/2026</td>
+                    <td>Enviado</td>
+                    <td>5.499,00</td>
+                </tr>
+                <tr>
+                    <td>#10294</td>
+                    <td>Bruno Costa</td>
+                    <td>Monitor UltraWide 34"</td>
+                    <td>21/01/2026</td>
+                    <td>Pendente</td>
+                    <td>3.200,00</td>
+                </tr>
+                <tr>
+                    <td>#10295</td>
+                    <td>Carla Souza</td>
+                    <td>Notebook Gamer v10</td>
+                    <td>20/01/2026</td>
+                    <td>Entregue</td>
+                    <td>8.150,00</td>
+                </tr>
+                <!-- Imagine centenas de linhas aqui -->
+                <tr>
+                    <td>#10296</td>
+                    <td>Diego Lima</td>
+                    <td>Cadeira Ergonômica</td>
+                    <td>20/01/2026</td>
+                    <td>Cancelado</td>
+                    <td>1.200,00</td>
+                </tr>
+                <tr>
+                    <td>#10297</td>
+                    <td>Elena Rocha</td>
+                    <td>Teclado Mecânico RGB</td>
+                    <td>19/01/2026</td>
+                    <td>Entregue</td>
+                    <td>450,00</td>
+                </tr>
+                <tr>
+                    <td>#10293</td>
+                    <td>Ana Silva</td>
+                    <td>Smartphone Pro Max</td>
+                    <td>21/01/2026</td>
+                    <td>Enviado</td>
+                    <td>5.499,00</td>
+                </tr>
+                <tr>
+                    <td>#10294</td>
+                    <td>Bruno Costa</td>
+                    <td>Monitor UltraWide 34"</td>
+                    <td>21/01/2026</td>
+                    <td>Pendente</td>
+                    <td>3.200,00</td>
+                </tr>
+                <tr>
+                    <td>#10295</td>
+                    <td>Carla Souza</td>
+                    <td>Notebook Gamer v10</td>
+                    <td>20/01/2026</td>
+                    <td>Entregue</td>
+                    <td>8.150,00</td>
+                </tr>
+                <!-- Imagine centenas de linhas aqui -->
+                <tr>
+                    <td>#10296</td>
+                    <td>Diego Lima</td>
+                    <td>Cadeira Ergonômica</td>
+                    <td>20/01/2026</td>
+                    <td>Cancelado</td>
+                    <td>1.200,00</td>
+                </tr>
+                <tr>
+                    <td>#10297</td>
+                    <td>Elena Rocha</td>
+                    <td>Teclado Mecânico RGB</td>
+                    <td>19/01/2026</td>
+                    <td>Entregue</td>
+                    <td>450,00</td>
+                </tr>
+                <tr>
+                    <td>#10293</td>
+                    <td>Ana Silva</td>
+                    <td>Smartphone Pro Max</td>
+                    <td>21/01/2026</td>
+                    <td>Enviado</td>
+                    <td>5.499,00</td>
+                </tr>
+                <tr>
+                    <td>#10294</td>
+                    <td>Bruno Costa</td>
+                    <td>Monitor UltraWide 34"</td>
+                    <td>21/01/2026</td>
+                    <td>Pendente</td>
+                    <td>3.200,00</td>
+                </tr>
+                <tr>
+                    <td>#10295</td>
+                    <td>Carla Souza</td>
+                    <td>Notebook Gamer v10</td>
+                    <td>20/01/2026</td>
+                    <td>Entregue</td>
+                    <td>8.150,00</td>
+                </tr>
+                <!-- Imagine centenas de linhas aqui -->
+                <tr>
+                    <td>#10296</td>
+                    <td>Diego Lima</td>
+                    <td>Cadeira Ergonômica</td>
+                    <td>20/01/2026</td>
+                    <td>Cancelado</td>
+                    <td>1.200,00</td>
+                </tr>
+                <tr>
+                    <td>#10297</td>
+                    <td>Elena Rocha</td>
+                    <td>Teclado Mecânico RGB</td>
+                    <td>19/01/2026</td>
+                    <td>Entregue</td>
+                    <td>450,00</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr style="background: #eee; font-weight: bold;">
+                    <td colspan="5">Total Acumulado</td>
+                    <td>18.499,00</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <h3>O que este exemplo resolve:</h3>
+<ol>
+    <li>
+        position: sticky no thead: Resolve o problema de perder o contexto das colunas ao rolar para baixo em listas gigantes.
+    </li>
+    <li>
+        .table-container com overflow-x: auto: Impede que a tabela quebre o layout do seu site em celulares, criando uma barra de rolagem horizontal apenas para os dados.
+    </li>
+    <li>
+        nth-child(even): Melhora a escaneabilidade visual, ajudando o olho a seguir a linha correcta em tabelas muito largas.
+    </li>
+    <li>
+        min-width nas células: Evita que o conteúdo fique "espremido" quando houver muitas colunas.
+    </li>
+</ol>
+
+<p>
+    Se você precisar lidar com milhões de linhas, o próximo passo seria implementar o DataTables para adicionar filtros de busca e paginação automática via JavaScript.
+</p>
+</main>
 </body>
 </html>

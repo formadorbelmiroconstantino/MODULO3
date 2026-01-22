@@ -38,3 +38,11 @@ Aula 20 - Hospedando o Projecto Cordel Gratuitamente (Siga os passos da aula sob
 Aula 21 - Ainda Podemos usar Tabelas em HTML?
 Aula 21.1 - Sua Primeira Tabela em HTML
 Aula 21.2 - Alinhando o Conteúdo em Tabelas
+Aula 21.3 - Aprendendo a Trabalhar com Tabelas Grandes
+
+
+OBSERVAÇAO: Por pesquisar no ChatGPT:
+
+Se quiser o nível “profissional” mesmo para tabelas MUITO grandes (ex: 10.000+ linhas), eu te passo o exemplo com Server-side Processing (paginação e busca no PHP/MySQL, carregando por AJAX), que é o ideal para performance.
+
+Quer esse exemplo também (PHP + MySQL + AJAX + DataTables server-side)?

@@ -11,63 +11,828 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.dataTables.min.css">
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f6f9;
-            padding: 20px;
-        }
+/* Define a fonte padrão da página, cor de fundo e espacamento interno */
+body{
+  font-family: Arial, sans-serif; /* Fonte simples e legível */
+  background:#f4f6f9;            /* Cor de fundo clara (layout admin) */
+  padding:20px;                  /* Espaço interno em toda a página */
+}
 
-        h2 {
-            margin: 0 0 12px;
-        }
+/* Estilo do título */
+h2{
+  margin:0 0 12px;     /* Espaço inferior entre o h2 e a tabela */
+}
 
-        .card {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 14px;
-        }
+/* Cartão que envolve a tabela */
+.card{
+  background:#fff;               /* Fundo branco */
+  border:1px solid #ddd;         /* Borda cinza clara */
+  border-radius:10px;            /* Cantos arredondados */
+  padding:14px;                  /* Espaço interno */
+}
 
-        .table-wrap {
-            overflow: auto;
-        }
+/* Container responsável pelo scroll */
+.table-wrap{
+  overflow:auto;                 /* Ativa scroll vertical e horizontal */
+}
 
-        table.dataTable tbody tr:hover {
-            background: #eef4ff;
-        }
+/* Efeito visual ao passar o mouse nas linhas */
+table.dataTable tbody tr:hover{
+  background:#eef4ff;            /* Azul claro no hover */
+}
 
-        .badge {
-            padding: 3px 8px;
-            border-radius: 999px;
-            font-weight: 700;
-            font-size: 12px;
-            display: inline-block;
-        }
+/* Estilo base para etiquetas de status */
+.badge{
+  padding:3px 8px;               /* Espaçamento interno */
+  border-radius:999px;           /* Forma arredondada (pill) */
+  font-weight:700;               /* Texto em negrito */
+  font-size:12px;                /* Tamanho pequeno */
+  display:inline-block;          /* Permite padding funcionar correctamente */
+}
 
-        .ativo {
-            background: #e6f7ec;
-            color: #1e7e34;
-        }
+/* Status ATIVO */
+.activo{
+  background:#e6f7ec;            /* Fundo verde claro */
+  color:#1e7e34;                 /* Texto verde escuro */
+}
 
-        .inativo {
-            background: #fdecea;
-            color: #b21f2d;
-        }
+/* Status INATIVO */
+.inactivo{
+  background:#fdecea;            /* Fundo vermelho claro */
+  color:#b21f2d;                 /* Texto vermelho escuro */
+}
 
-        .pendente {
-            background: #fff4e5;
-            color: #8a5a00;
-        }
+/* Status PENDENTE */
+.pendente{
+  background:#fff4e5;            /* Fundo laranja claro */
+  color:#8a5a00;                 /* Texto laranja escuro */
+}
 
-        /* força scroll horizontal caso tenha muitas colunas */
-        table {
-            min-width: 1100px;
-        }
-    </style>
+/* Força largura mínima da tabela
+   (ativa scroll horizontal quando a tela é menor) */
+table{
+  min-width:1100px;              /* Garante que colunas não fiquem esmagadas */
+}
+ </style>
 </head>
 
 <body>
-    <h2>Lista de Utilizadores</h2>
+    <h1>Mais Detalhes sobre Trabalhar com Tabelas Grandes</h1>
+    <p>
+        Para trabalhar bem com tabelas grandes (muitas colunas/linhas) em HTML + CSS, o segredo é: tornar a tabela “usável” (scroll, cabeçalho fixo, colunas importantes visíveis) e evitar que ela quebre o layout.
+    </p>
+    <h3>Abaixo, vão as melhores técnicas (com exemplos prontos):</h3>
+
+<h4>1. Scroll horizontal (para muitas colunas)</h4>
+<ul>    
+    <li>Coloque a tabela dentro de um container com overflow. Ideal para dashboards/admin.</li>
+</ul>
+
+<p><strong>HTML</strong></p>
+<p>
+    &lt;div class="table-wrap"&gt; <br>
+      &lt;table class="table"&gt; <br>
+        ... <br>
+      &lt;/table&gt; <br>
+    &lt;/div&gt; <br>
+</p>
+<h4>2. Cabeçalho fixo (sticky header)</h4>
+
+<ul><li>Muito útil quando tem muitas linhas.</li></ul>
+
+<p>
+    .table thead th{ <br>
+  position: sticky; <br>
+  top: 0; <br>
+  background: #fff; <br>
+  z-index: 2; <br>
+  border-bottom: 2px solid #ccc; <br>
+}
+</p>
+<ul><li><strong>Dica:</strong> o sticky funciona melhor quando a tabela está dentro de um container com scroll vertical (veja o próximo ponto).</li></ul>
+
+<h4>3. Scroll vertical com altura fixa</h4>
+<ul><li>Quando há milhares de linhas, deixa a navegação bem melhor.</li></ul>
+
+<p>
+    HTML <br><br>
+    &lt;div class="table-wrap table-vertical"&gt; <br>
+  &lt;table class="table"&gt; <br>
+    ... <br>
+  &lt;/table&gt; <br>
+&lt;/div&gt; <br>
+</p>
+
+<p>
+    CSS <br><br>
+    .table-vertical{ <br>
+  max-height: 420px; <br>
+  overflow: auto; /* vertical e horizontal se precisar */ <br>
+}
+</p>
+
+<h4>4. Largura controlada e colunas bem definidas</h4>
+
+<ul><li>Para evitar “colunas a dançar”, use table-layout: fixed.</li></ul>
+<p>
+    CSS <br><br>
+    .table{ <br>
+  table-layout: fixed; <br>
+} <br>
+
+.table td, .table th{ <br>
+  overflow: hidden; <br>
+  text-overflow: ellipsis; <br>
+}
+</p>
+<ul><li>Isso deixa tudo alinhado e mais estável.</li></ul>
+
+<h4>5. Coluna fixa na esquerda (sticky column)</h4>
+<ul><li>Para manter “Nome”, “ID”, etc. sempre visível.</li></ul>
+<p>
+    No CSS <br><br>
+    .table .sticky-col{ <br>
+  position: sticky; <br>
+  left: 0; <br>
+  background: #fff; <br>
+  z-index: 3; <br>
+  border-right: 1px solid #ddd; <br>
+}
+</p>
+<p>
+    Uso no HTML <br><br>
+    &lt;th class="sticky-col"&gt;Nome&lt;/th&gt; <br> 
+&lt;td class="sticky-col"&gt;Belmiro&lt;/td&gt; <br>
+</p>
+
+<h4>6. Linhas zebrada + hover (melhora leitura)</h4>
+<p>
+    No CSS <br><br>
+    .table tbody tr:nth-child(even){ <br>
+  background: #fafafa; <br>
+} <br>
+.table tbody tr:hover{ <br>
+  background: #f2f7ff; <br>
+}
+</p>
+<h4>7. Responsivo no mobile (modo “cartão”)</h4>
+<ul><li>Em telas pequenas, tabelas grandes ficam ruins. Você pode transformar cada linha em “card”:</li></ul>
+<p>
+    No CSS <br><br>
+    @media (max-width: 700px){ <br>
+  .table thead{ display: none; } <br>
+  .table, .table tbody, .table tr, .table td{ display: block; width: 100%; } <br>
+  .table tr{ border: 1px solid #eee; margin-bottom: 12px; border-radius: 8px;  <br>overflow: hidden; } <br>
+  .table td{ <br>
+    display: flex; <br>
+    justify-content: space-between; <br>
+    gap: 12px; <br>
+    padding: 10px; <br>
+    border-bottom: 1px solid #f1f1f1; <br>
+    white-space: normal; <br>
+  }
+  .table td::before{ <br>
+    content: attr(data-label); <br>
+    font-weight: 600; <br>
+    opacity: .7; <br>
+  } <br>
+}
+</p>
+<p>
+    No HTML <br><br>
+    &lt;td data-label="Email"&gt;teste@mail.com&lt;/td&gt;
+&lt;td data-label="Status"&gt;Activo&lt;/td&gt;
+</p>
+<h4>8. Performance (muito importante)</h4>
+<ul><li>Se tiver milhares de linhas, HTML puro pode ficar pesado.</li></ul>
+
+<h3>Boas práticas:</h3>
+
+<ul>
+    <li>
+        Paginação (mostrar 20/50 por página)
+    </li>        
+    <li>
+        Busca/filtragem (server-side se possível)
+    </li>        
+    <li>
+        Não carregar tudo de uma vez
+    </li>        
+    <li>
+        Evitar muitas sombras, animações e elementos dentro das células
+    </li>
+</ul>
+
+<p>Se você utilizar PHP/MySQL, o ideal será:</p>
+ <ul>
+    <li>
+        LIMIT + paginação no back-end
+    <li>
+        filtros por query
+    <li>
+        carregar por AJAX quando necessário
+    </li>
+</ul>
+<p>Se não quiser ter o trabalho de implementar pelo back-end, utilize o DataTables.</p>
+<hr>
+<h2>Tabelas Grandes com DataTables</h2>
+
+<p>
+     DataTables é excelente para tabelas grandes em HTML, transformando tabelas HTML comuns em interfaces ricas com busca, paginação, ordenação e controlo de dados por página, tudo isso sem programação complexa, apenas adicionando CSS/JS e inicializando com jQuery ou Vanilla JS para lidar com grandes volumes de dados de forma interactiva e eficiente. 
+</p>
+<hr>
+<h3>Como funciona?</h3>
+<ol>
+    <li>
+        Estrutura HTML: Comece com uma tabela HTML (&lt;table&gt;, &lt;thead&gt;, &lt;tbody&gt;, &lt;tr&gt;, &lt;th&gt;, &lt;td&gt;) normal, como sempre.
+    </li>
+    <li>
+        Inclusão de Arquivos: Adicione os arquivos CSS e JavaScript do DataTables (via CDN ou localmente) na sua página HTML, geralmente antes da tag de fechamento &lt;/body&gt;.
+    </li>
+    <li>
+        Inicialização: Use um pequeno trecho de código JavaScript (com jQuery ou puro) para seleccionar sua tabela (ex: $('#minhaTabela').DataTable();) e activar as funcionalidades.
+    </li>
+</ol> 
+<hr>
+<h3>Funcionalidades para Tabelas Grandes:</h3>
+<ul>
+    <li>
+        Paginação: Divide os dados em páginas, facilitando a navegação.
+    </li>
+    <li>
+        Busca/Filtro: Campo de busca para filtrar dados instantaneamente.
+    </li>
+    <li>
+        Ordenação: Clique nas colunas para ordenar os dados.
+    </li>
+    <li>
+        Controlo de Registos: Escolha quantos itens ver por página (10, 25, 50, etc.).
+    </li>
+    <li>
+        Responsividade: Adapta-se a diferentes tamanhos de tela.
+    </li>
+</ul>
+
+<p>
+    Abaixo vai um exemplo com muitos dados e com funcionalidades do DataTables (pesquisa, ordenação, paginação, escolher nº de linhas, info “Mostrando X de Y”, e layout responsivo).
+</p>
+
+<p>
+No HTML com CSS Interno <br><br>
+
+ &lt;div class="card"&gt; <br>
+        &lt;div class="table-wrap"&gt; <br>
+            &lt;table id="usersTable" class="display nowrap" style="width:100%"&gt; <br>
+                &lt;thead&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;th&gt;ID&lt;/th&gt; <br>
+                        &lt;th&gt;Nome&lt;/th&gt; <br>
+                        &lt;th&gt;Email&lt;/th&gt; <br>
+                        &lt;th&gt;Departamento&lt;/th&gt; <br>
+                        &lt;th&gt;Função&lt;/th&gt; <br>
+                        &lt;th&gt;Estado&lt;/th&gt; <br>
+                        &lt;th&gt;Data do sistema&lt;/th&gt; <br>
+                        &lt;th&gt;Último Login&lt;/th&gt; <br>
+                        &lt;th&gt;Telemóvel&lt;/th&gt; <br>
+                        &lt;th&gt;Cidade&lt;/th&gt; <br>
+                    &lt;/tr&gt; <br>
+                &lt;/thead&gt; <br>
+                &lt;tbody&gt; <br>
+                    &lt;!-- MAIS DADOS (exemplo) --&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;1&lt;/td&gt; <br>
+                        &lt;td&gt;Belmiro Constantino&lt;/td&gt; <br>
+                        &lt;td&gt;belmiro@email.com&lt;/td&gt; <br>
+                        &lt;td&gt;TI&lt;/td&gt; <br>
+                        &lt;td&gt;Administrador&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2025-01-10&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-18&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Luanda&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;2&lt;/td&gt; <br>
+                        &lt;td&gt;Maria Silva&lt;/td&gt; <br>
+                        &lt;td&gt;maria@email.com&lt;/td&gt; <br>
+                        &lt;td&gt;RH&lt;/td&gt; <br>
+                        &lt;td&gt;Gestora&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge inactivo"&gt;Inactivo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2024-11-02&lt;/td&gt; <br>
+                        &lt;td&gt;2025-12-20&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Luanda&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;3&lt;/td&gt; <br>
+                        &lt;td&gt;João Pedro&lt;/td&gt; <br>
+                        &lt;td&gt;joao@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Financeiro&lt;/td&gt; <br>
+                        &lt;td&gt;Analista&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2024-09-15&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-19&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Catumbela&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;4&lt;/td&gt; <br>
+                        &lt;td&gt;Ana Paula&lt;/td&gt; <br>
+                        &lt;td&gt;ana.paula@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Compras&lt;/td&gt; <br>
+                        &lt;td&gt;Técnica&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge pendente"&gt;Pendente&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2025-02-01&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-05&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Lubango&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;5&lt;/td&gt; <br>
+                        &lt;td&gt;Carlos Mendes&lt;/td&gt; <br>
+                        &lt;td&gt;carlos@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;TI&lt;/td&gt; <br>
+                        &lt;td&gt;Programador&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2024-06-21&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-20&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Luanda&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;6&lt;/td&gt; <br>
+                        &lt;td&gt;Helena Costa&lt;/td&gt; <br>
+                        &lt;td&gt;helena@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Jurídico&lt;/td&gt; <br>
+                        &lt;td&gt;Assessora&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2023-12-13&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-12&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Benguela&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;7&lt;/td&gt; <br>
+                        &lt;td&gt;Paulo André&lt;/td&gt; <br>
+                        &lt;td&gt;paulo@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Operações&lt;/td&gt; <br>
+                        &lt;td&gt;Supervisor&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge pendente"&gt;Pendente&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2025-03-09&lt;/td&gt; <br>
+                        &lt;td&gt;2025-12-29&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Saurimo&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;8&lt;/td&gt; <br>
+                        &lt;td&gt;Sara Nunes&lt;/td&gt; <br>
+                        &lt;td&gt;sara@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Marketing&lt;/td&gt; <br>
+                        &lt;td&gt;Especialista&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2024-07-30&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-02&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Luanda&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;9&lt;/td&gt; <br>
+                        &lt;td&gt;Rui Santos&lt;/td&gt; <br>
+                        &lt;td&gt;rui@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;TI&lt;/td&gt; <br>
+                        &lt;td&gt;Suporte&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge inactivo"&gt;Inactivo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2024-01-06&lt;/td&gt; <br>
+                        &lt;td&gt;2025-10-13&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Uíge&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;10&lt;/td&gt; <br>
+                        &lt;td&gt;Teresa Alves&lt;/td&gt; <br>
+                        &lt;td&gt;teresa@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;RH&lt;/td&gt; <br>
+                        &lt;td&gt;Recrutadora&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2025-05-17&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-21&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Luanda&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+
+                    &lt;!-- (mais linhas para simular tabela grande) --&gt;
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;11&lt;/td&gt; <br>
+                        &lt;td&gt;Edson Lima&lt;/td&gt; <br>
+                        &lt;td&gt;edson@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Operações&lt;/td&gt; <br>
+                        &lt;td&gt;Analista&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2024-08-03&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-11&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Malanje&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;12&lt;/td&gt; <br>
+                        &lt;td&gt;Vera Rocha&lt;/td&gt; <br>
+                        &lt;td&gt;vera@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Compras&lt;/td&gt; <br>
+                        &lt;td&gt;Coordenadora&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2025-01-29&lt;/td&gt; <br>
+                        &lt;td&gt;2025-12-28&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Benguela&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;13&lt;/td&gt; <br>
+                        &lt;td&gt;Igor Silva&lt;/td&gt; <br>
+                        &lt;td&gt;igor@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Financeiro&lt;/td&gt; <br>
+                        &lt;td&gt;Contabilista&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge pendente"&gt;Pendente&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2024-10-12&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-07&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Luanda&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;14&lt;/td&gt; <br>
+                        &lt;td&gt;Cláudia Pinto&lt;/td&gt; <br>
+                        &lt;td&gt;claudia@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Marketing&lt;/td&gt; <br>
+                        &lt;td&gt;Designer&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2023-09-22&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-09&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Huambo&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;15&lt;/td&gt; <br>
+                        &lt;td&gt;Bruno Ferreira&lt;/td&gt; <br>
+                        &lt;td&gt;bruno@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;TI&lt;/td&gt; <br>
+                        &lt;td&gt;Dev Fullstack&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2024-04-14&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-20&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Luanda&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;16&lt;/td&gt; <br>
+                        &lt;td&gt;Patrícia Gomes&lt;/td&gt; <br>
+                        &lt;td&gt;patricia@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Jurídico&lt;/td&gt; <br>
+                        &lt;td&gt;Assistente&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge inactivo"&gt;Inactivo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2024-02-07&lt;/td&gt; <br>
+                        &lt;td&gt;2025-09-02&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Lobito&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;17&lt;/td&gt; <br>
+                        &lt;td&gt;Nuno Martins&lt;/td&gt; <br>
+                        &lt;td&gt;nuno@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Operações&lt;/td&gt; <br>
+                        &lt;td&gt;Técnico&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2025-06-03&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-16&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Saurimo&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;18&lt;/td&gt; <br>
+                        &lt;td&gt;Débora Araújo&lt;/td&gt; <br>
+                        &lt;td&gt;debora@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;RH&lt;/td&gt; <br>
+                        &lt;td&gt;Assistente&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2024-12-24&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-21&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Luanda&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;19&lt;/td&gt; <br>
+                        &lt;td&gt;Filipe Sousa&lt;/td&gt; <br>
+                        &lt;td&gt;filipe@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Financeiro&lt;/td&gt; <br>
+                        &lt;td&gt;Analista&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge pendente"&gt;Pendente&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2025-02-26&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-03&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Lubango&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;20&lt;/td&gt; <br>
+                        &lt;td&gt;Lídia Correia&lt;/td&gt; <br>
+                        &lt;td&gt;lidia@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Marketing&lt;/td&gt; <br>
+                        &lt;td&gt;Social Media&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2024-05-10&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-14&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Luanda&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;1&lt;/td&gt; <br>
+                        &lt;td&gt;Belmiro Constantino&lt;/td&gt; <br>
+                        &lt;td&gt;belmiro@email.com&lt;/td&gt; <br>
+                        &lt;td&gt;TI&lt;/td&gt; <br>
+                        &lt;td&gt;Administrador&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2025-01-10&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-18&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Luanda&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;2&lt;/td&gt; <br>
+                        &lt;td&gt;Maria Silva&lt;/td&gt; <br>
+                        &lt;td&gt;maria@email.com&lt;/td&gt; <br>
+                        &lt;td&gt;RH&lt;/td&gt; <br>
+                        &lt;td&gt;Gestora&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge inactivo"&gt;Inactivo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2024-11-02&lt;/td&gt; <br>
+                        &lt;td&gt;2025-12-20&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Luanda&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;3&lt;/td&gt; <br>
+                        &lt;td&gt;João Pedro&lt;/td&gt; <br>
+                        &lt;td&gt;joao@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Financeiro&lt;/td&gt; <br>
+                        &lt;td&gt;Analista&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2024-09-15&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-19&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Catumbela&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;4&lt;/td&gt; <br>
+                        &lt;td&gt;Ana Paula&lt;/td&gt; <br>
+                        &lt;td&gt;ana.paula@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Compras&lt;/td&gt; <br>
+                        &lt;td&gt;Técnica&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge pendente"&gt;Pendente&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2025-02-01&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-05&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Lubango&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;5&lt;/td&gt; <br>
+                        &lt;td&gt;Carlos Mendes&lt;/td&gt; <br>
+                        &lt;td&gt;carlos@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;TI&lt;/td&gt; <br>
+                        &lt;td&gt;Programador&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2024-06-21&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-20&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Luanda&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;6&lt;/td&gt; <br>
+                        &lt;td&gt;Helena Costa&lt;/td&gt; <br>
+                        &lt;td&gt;helena@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Jurídico&lt;/td&gt; <br>
+                        &lt;td&gt;Assessora&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2023-12-13&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-12&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Benguela&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;7&lt;/td&gt; <br>
+                        &lt;td&gt;Paulo André&lt;/td&gt; <br>
+                        &lt;td&gt;paulo@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Operações&lt;/td&gt; <br>
+                        &lt;td&gt;Supervisor&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge pendente"&gt;Pendente&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2025-03-09&lt;/td&gt; <br>
+                        &lt;td&gt;2025-12-29&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Saurimo&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;8&lt;/td&gt; <br>
+                        &lt;td&gt;Sara Nunes&lt;/td&gt; <br>
+                        &lt;td&gt;sara@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Marketing&lt;/td&gt; <br>
+                        &lt;td&gt;Especialista&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2024-07-30&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-02&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Luanda&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;9&lt;/td&gt; <br>
+                        &lt;td&gt;Rui Santos&lt;/td&gt; <br>
+                        &lt;td&gt;rui@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;TI&lt;/td&gt; <br>
+                        &lt;td&gt;Suporte&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge inactivo"&gt;Inactivo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2024-01-06&lt;/td&gt; <br>
+                        &lt;td&gt;2025-10-13&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Uíge&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;10&lt;/td&gt; <br>
+                        &lt;td&gt;Teresa Alves&lt;/td&gt; <br>
+                        &lt;td&gt;teresa@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;RH&lt;/td&gt; <br>
+                        &lt;td&gt;Recrutadora&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2025-05-17&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-21&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Luanda&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+
+                    &lt;!-- (mais linhas para simular tabela grande) --&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;11&lt;/td&gt; <br>
+                        &lt;td&gt;Edson Lima&lt;/td&gt; <br>
+                        &lt;td&gt;edson@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Operações&lt;/td&gt; <br>
+                        &lt;td&gt;Analista&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2024-08-03&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-11&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Malanje&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;12&lt;/td&gt; <br>
+                        &lt;td&gt;Vera Rocha&lt;/td&gt; <br>
+                        &lt;td&gt;vera@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Compras&lt;/td&gt; <br>
+                        &lt;td&gt;Coordenadora&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2025-01-29&lt;/td&gt; <br>
+                        &lt;td&gt;2025-12-28&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Benguela&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;13&lt;/td&gt; <br>
+                        &lt;td&gt;Igor Silva&lt;/td&gt; <br>
+                        &lt;td&gt;igor@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Financeiro&lt;/td&gt; <br>
+                        &lt;td&gt;Contabilista&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge pendente"&gt;Pendente&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2024-10-12&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-07&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Luanda&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;14&lt;/td&gt; <br>
+                        &lt;td&gt;Cláudia Pinto&lt;/td&gt; <br>
+                        &lt;td&gt;claudia@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Marketing&lt;/td&gt; <br>
+                        &lt;td&gt;Designer&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2023-09-22&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-09&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Huambo&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;15&lt;/td&gt; <br>
+                        &lt;td&gt;Bruno Ferreira&lt;/td&gt; <br>
+                        &lt;td&gt;bruno@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;TI&lt;/td&gt; <br>
+                        &lt;td&gt;Dev Fullstack&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2024-04-14&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-20&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Luanda&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;16&lt;/td&gt; <br>
+                        &lt;td&gt;Patrícia Gomes&lt;/td&gt; <br>
+                        &lt;td&gt;patricia@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Jurídico&lt;/td&gt; <br>
+                        &lt;td&gt;Assistente&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge inactivo"&gt;Inactivo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2024-02-07&lt;/td&gt; <br>
+                        &lt;td&gt;2025-09-02&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Lobito&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;17&lt;/td&gt; <br>
+                        &lt;td&gt;Nuno Martins&lt;/td&gt; <br>
+                        &lt;td&gt;nuno@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Operações&lt;/td&gt; <br>
+                        &lt;td&gt;Técnico&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2025-06-03&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-16&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Saurimo&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;18&lt;/td&gt; <br>
+                        &lt;td&gt;Débora Araújo&lt;/td&gt; <br>
+                        &lt;td&gt;debora@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;RH&lt;/td&gt; <br>
+                        &lt;td&gt;Assistente&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2024-12-24&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-21&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Luanda&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;19&lt;/td&gt; <br>
+                        &lt;td&gt;Filipe Sousa&lt;/td&gt; <br>
+                        &lt;td&gt;filipe@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Financeiro&lt;/td&gt; <br>
+                        &lt;td&gt;Analista&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge pendente"&gt;Pendente&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2025-02-26&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-03&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Lubango&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+                    &lt;tr&gt; <br>
+                        &lt;td&gt;20&lt;/td&gt; <br>
+                        &lt;td&gt;Lídia Correia&lt;/td&gt; <br>
+                        &lt;td&gt;lidia@empresa.com&lt;/td&gt; <br>
+                        &lt;td&gt;Marketing&lt;/td&gt; <br>
+                        &lt;td&gt;Social Media&lt;/td&gt; <br>
+                        &lt;td&gt;&lt;span class="badge activo"&gt;Activo&lt;/span&gt;&lt;/td&gt; <br>
+                        &lt;td&gt;2024-05-10&lt;/td&gt; <br>
+                        &lt;td&gt;2026-01-14&lt;/td&gt; <br>
+                        &lt;td&gt;+244 9xx xxx xxx&lt;/td&gt; <br>
+                        &lt;td&gt;Luanda&lt;/td&gt; <br>
+                    &lt;/tr&gt; <br>
+
+                    &lt;!-- Repete mais se quiser simular 100/500/1000 linhas --&gt; <br>
+                &lt;/tbody&gt; <br>
+            &lt;/table&gt; <br>
+        &lt;/div&gt; <br>
+    &lt;/div&gt; <br>
+
+    &lt;!-- jQuery (necessário para muitos exemplos clássicos) --&gt; <br>
+    &lt;script src="https://code.jquery.com/jquery-3.7.1.min.js"&gt;&lt;/script&gt; <br>
+
+    &lt;!-- DataTables (JS) --&gt; <br>
+    &lt;script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"&gt;&lt;/script&gt; <br>
+    &lt;script src="https://cdn.datatables.net/responsive/3.0.2/js/dataTables.responsive.min.js"&gt;&lt;/script&gt; <br>
+
+    &lt;script&gt; <br>
+        $(function () { <br>
+            $('#usersTable').DataTable({ <br>
+                // funcionalidades principais <br>
+                paging: true, <br>
+                searching: true, <br>
+                ordering: true, <br>
+                info: true, <br>
+                pageLength: 10, <br>
+                lengthMenu: [[10, 25, 50, 100], [10, 25, 50, 100]], <br>
+
+                // responsivo (oculta colunas e mostra detalhes quando necessário) <br>
+                responsive: true, <br>
+
+                // melhor para tabela larga <br>
+                scrollX: true, <br>
+
+                // idioma PT (pode ajustar à vontade) <br>
+                language: { <br>
+                    search: "Pesquisar:", <br>
+                    lengthMenu: "Mostrar _MENU_ registos", <br>
+                    info: "Mostrando _START_ a _END_ de _TOTAL_ registos", <br>
+                    infoEmpty: "Sem registos",
+                    zeroRecords: "Nenhum resultado encontrado", <br>
+                    paginate: { first: "Primeiro", last: "Último", next:  <br>"Seguinte", previous: "Anterior" } <br>
+                }, <br>
+
+                // exemplo: ordenar por ID asc ao carregar <br>
+                order: [[0, 'asc']] <br>
+            }); <br>
+        }); <br>
+    &lt;/script&gt; <br>
+</p>
+    <h2><strong>Resultado: </strong>Lista de Utilizadores</h2>
 
     <div class="card">
         <div class="table-wrap">
@@ -78,11 +843,11 @@
                         <th>Nome</th>
                         <th>Email</th>
                         <th>Departamento</th>
-                        <th>Cargo</th>
-                        <th>Status</th>
-                        <th>Data Registo</th>
+                        <th>Função</th>
+                        <th>Estado</th>
+                        <th>Data do sistema</th>
                         <th>Último Login</th>
-                        <th>Telefone</th>
+                        <th>Telemóvel</th>
                         <th>Cidade</th>
                     </tr>
                 </thead>
@@ -94,7 +859,7 @@
                         <td>belmiro@email.com</td>
                         <td>TI</td>
                         <td>Administrador</td>
-                        <td><span class="badge ativo">Ativo</span></td>
+                        <td><span class="badge activo">Activo</span></td>
                         <td>2025-01-10</td>
                         <td>2026-01-18</td>
                         <td>+244 9xx xxx xxx</td>
@@ -106,7 +871,7 @@
                         <td>maria@email.com</td>
                         <td>RH</td>
                         <td>Gestora</td>
-                        <td><span class="badge inativo">Inativo</span></td>
+                        <td><span class="badge inactivo">Inactivo</span></td>
                         <td>2024-11-02</td>
                         <td>2025-12-20</td>
                         <td>+244 9xx xxx xxx</td>
@@ -118,7 +883,7 @@
                         <td>joao@empresa.com</td>
                         <td>Financeiro</td>
                         <td>Analista</td>
-                        <td><span class="badge ativo">Ativo</span></td>
+                        <td><span class="badge activo">Activo</span></td>
                         <td>2024-09-15</td>
                         <td>2026-01-19</td>
                         <td>+244 9xx xxx xxx</td>
@@ -142,7 +907,7 @@
                         <td>carlos@empresa.com</td>
                         <td>TI</td>
                         <td>Programador</td>
-                        <td><span class="badge ativo">Ativo</span></td>
+                        <td><span class="badge activo">Activo</span></td>
                         <td>2024-06-21</td>
                         <td>2026-01-20</td>
                         <td>+244 9xx xxx xxx</td>
@@ -154,7 +919,7 @@
                         <td>helena@empresa.com</td>
                         <td>Jurídico</td>
                         <td>Assessora</td>
-                        <td><span class="badge ativo">Ativo</span></td>
+                        <td><span class="badge activo">Activo</span></td>
                         <td>2023-12-13</td>
                         <td>2026-01-12</td>
                         <td>+244 9xx xxx xxx</td>
@@ -178,7 +943,7 @@
                         <td>sara@empresa.com</td>
                         <td>Marketing</td>
                         <td>Especialista</td>
-                        <td><span class="badge ativo">Ativo</span></td>
+                        <td><span class="badge activo">Activo</span></td>
                         <td>2024-07-30</td>
                         <td>2026-01-02</td>
                         <td>+244 9xx xxx xxx</td>
@@ -190,7 +955,7 @@
                         <td>rui@empresa.com</td>
                         <td>TI</td>
                         <td>Suporte</td>
-                        <td><span class="badge inativo">Inativo</span></td>
+                        <td><span class="badge inactivo">Inactivo</span></td>
                         <td>2024-01-06</td>
                         <td>2025-10-13</td>
                         <td>+244 9xx xxx xxx</td>
@@ -202,7 +967,7 @@
                         <td>teresa@empresa.com</td>
                         <td>RH</td>
                         <td>Recrutadora</td>
-                        <td><span class="badge ativo">Ativo</span></td>
+                        <td><span class="badge activo">Activo</span></td>
                         <td>2025-05-17</td>
                         <td>2026-01-21</td>
                         <td>+244 9xx xxx xxx</td>
@@ -216,7 +981,7 @@
                         <td>edson@empresa.com</td>
                         <td>Operações</td>
                         <td>Analista</td>
-                        <td><span class="badge ativo">Ativo</span></td>
+                        <td><span class="badge activo">Activo</span></td>
                         <td>2024-08-03</td>
                         <td>2026-01-11</td>
                         <td>+244 9xx xxx xxx</td>
@@ -228,7 +993,7 @@
                         <td>vera@empresa.com</td>
                         <td>Compras</td>
                         <td>Coordenadora</td>
-                        <td><span class="badge ativo">Ativo</span></td>
+                        <td><span class="badge activo">Activo</span></td>
                         <td>2025-01-29</td>
                         <td>2025-12-28</td>
                         <td>+244 9xx xxx xxx</td>
@@ -252,7 +1017,7 @@
                         <td>claudia@empresa.com</td>
                         <td>Marketing</td>
                         <td>Designer</td>
-                        <td><span class="badge ativo">Ativo</span></td>
+                        <td><span class="badge activo">Activo</span></td>
                         <td>2023-09-22</td>
                         <td>2026-01-09</td>
                         <td>+244 9xx xxx xxx</td>
@@ -264,7 +1029,7 @@
                         <td>bruno@empresa.com</td>
                         <td>TI</td>
                         <td>Dev Fullstack</td>
-                        <td><span class="badge ativo">Ativo</span></td>
+                        <td><span class="badge activo">Activo</span></td>
                         <td>2024-04-14</td>
                         <td>2026-01-20</td>
                         <td>+244 9xx xxx xxx</td>
@@ -277,7 +1042,7 @@
                         <td>patricia@empresa.com</td>
                         <td>Jurídico</td>
                         <td>Assistente</td>
-                        <td><span class="badge inativo">Inativo</span></td>
+                        <td><span class="badge inactivo">Inactivo</span></td>
                         <td>2024-02-07</td>
                         <td>2025-09-02</td>
                         <td>+244 9xx xxx xxx</td>
@@ -289,7 +1054,7 @@
                         <td>nuno@empresa.com</td>
                         <td>Operações</td>
                         <td>Técnico</td>
-                        <td><span class="badge ativo">Ativo</span></td>
+                        <td><span class="badge activo">Activo</span></td>
                         <td>2025-06-03</td>
                         <td>2026-01-16</td>
                         <td>+244 9xx xxx xxx</td>
@@ -301,7 +1066,7 @@
                         <td>debora@empresa.com</td>
                         <td>RH</td>
                         <td>Assistente</td>
-                        <td><span class="badge ativo">Ativo</span></td>
+                        <td><span class="badge activo">Activo</span></td>
                         <td>2024-12-24</td>
                         <td>2026-01-21</td>
                         <td>+244 9xx xxx xxx</td>
@@ -325,7 +1090,250 @@
                         <td>lidia@empresa.com</td>
                         <td>Marketing</td>
                         <td>Social Media</td>
-                        <td><span class="badge ativo">Ativo</span></td>
+                        <td><span class="badge activo">Activo</span></td>
+                        <td>2024-05-10</td>
+                        <td>2026-01-14</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Luanda</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Belmiro Constantino</td>
+                        <td>belmiro@email.com</td>
+                        <td>TI</td>
+                        <td>Administrador</td>
+                        <td><span class="badge activo">Activo</span></td>
+                        <td>2025-01-10</td>
+                        <td>2026-01-18</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Luanda</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Maria Silva</td>
+                        <td>maria@email.com</td>
+                        <td>RH</td>
+                        <td>Gestora</td>
+                        <td><span class="badge inactivo">Inactivo</span></td>
+                        <td>2024-11-02</td>
+                        <td>2025-12-20</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Luanda</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>João Pedro</td>
+                        <td>joao@empresa.com</td>
+                        <td>Financeiro</td>
+                        <td>Analista</td>
+                        <td><span class="badge activo">Activo</span></td>
+                        <td>2024-09-15</td>
+                        <td>2026-01-19</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Catumbela</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Ana Paula</td>
+                        <td>ana.paula@empresa.com</td>
+                        <td>Compras</td>
+                        <td>Técnica</td>
+                        <td><span class="badge pendente">Pendente</span></td>
+                        <td>2025-02-01</td>
+                        <td>2026-01-05</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Lubango</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Carlos Mendes</td>
+                        <td>carlos@empresa.com</td>
+                        <td>TI</td>
+                        <td>Programador</td>
+                        <td><span class="badge activo">Activo</span></td>
+                        <td>2024-06-21</td>
+                        <td>2026-01-20</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Luanda</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Helena Costa</td>
+                        <td>helena@empresa.com</td>
+                        <td>Jurídico</td>
+                        <td>Assessora</td>
+                        <td><span class="badge activo">Activo</span></td>
+                        <td>2023-12-13</td>
+                        <td>2026-01-12</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Benguela</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Paulo André</td>
+                        <td>paulo@empresa.com</td>
+                        <td>Operações</td>
+                        <td>Supervisor</td>
+                        <td><span class="badge pendente">Pendente</span></td>
+                        <td>2025-03-09</td>
+                        <td>2025-12-29</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Saurimo</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Sara Nunes</td>
+                        <td>sara@empresa.com</td>
+                        <td>Marketing</td>
+                        <td>Especialista</td>
+                        <td><span class="badge activo">Activo</span></td>
+                        <td>2024-07-30</td>
+                        <td>2026-01-02</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Luanda</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Rui Santos</td>
+                        <td>rui@empresa.com</td>
+                        <td>TI</td>
+                        <td>Suporte</td>
+                        <td><span class="badge inactivo">Inactivo</span></td>
+                        <td>2024-01-06</td>
+                        <td>2025-10-13</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Uíge</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Teresa Alves</td>
+                        <td>teresa@empresa.com</td>
+                        <td>RH</td>
+                        <td>Recrutadora</td>
+                        <td><span class="badge activo">Activo</span></td>
+                        <td>2025-05-17</td>
+                        <td>2026-01-21</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Luanda</td>
+                    </tr>
+
+                    <!-- (mais linhas para simular tabela grande) -->
+                    <tr>
+                        <td>11</td>
+                        <td>Edson Lima</td>
+                        <td>edson@empresa.com</td>
+                        <td>Operações</td>
+                        <td>Analista</td>
+                        <td><span class="badge activo">Activo</span></td>
+                        <td>2024-08-03</td>
+                        <td>2026-01-11</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Malanje</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Vera Rocha</td>
+                        <td>vera@empresa.com</td>
+                        <td>Compras</td>
+                        <td>Coordenadora</td>
+                        <td><span class="badge activo">Activo</span></td>
+                        <td>2025-01-29</td>
+                        <td>2025-12-28</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Benguela</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Igor Silva</td>
+                        <td>igor@empresa.com</td>
+                        <td>Financeiro</td>
+                        <td>Contabilista</td>
+                        <td><span class="badge pendente">Pendente</span></td>
+                        <td>2024-10-12</td>
+                        <td>2026-01-07</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Luanda</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Cláudia Pinto</td>
+                        <td>claudia@empresa.com</td>
+                        <td>Marketing</td>
+                        <td>Designer</td>
+                        <td><span class="badge activo">Activo</span></td>
+                        <td>2023-09-22</td>
+                        <td>2026-01-09</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Huambo</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Bruno Ferreira</td>
+                        <td>bruno@empresa.com</td>
+                        <td>TI</td>
+                        <td>Dev Fullstack</td>
+                        <td><span class="badge activo">Activo</span></td>
+                        <td>2024-04-14</td>
+                        <td>2026-01-20</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Luanda</td>
+                    </tr>
+
+                    <tr>
+                        <td>16</td>
+                        <td>Patrícia Gomes</td>
+                        <td>patricia@empresa.com</td>
+                        <td>Jurídico</td>
+                        <td>Assistente</td>
+                        <td><span class="badge inactivo">Inactivo</span></td>
+                        <td>2024-02-07</td>
+                        <td>2025-09-02</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Lobito</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>Nuno Martins</td>
+                        <td>nuno@empresa.com</td>
+                        <td>Operações</td>
+                        <td>Técnico</td>
+                        <td><span class="badge activo">Activo</span></td>
+                        <td>2025-06-03</td>
+                        <td>2026-01-16</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Saurimo</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Débora Araújo</td>
+                        <td>debora@empresa.com</td>
+                        <td>RH</td>
+                        <td>Assistente</td>
+                        <td><span class="badge activo">Activo</span></td>
+                        <td>2024-12-24</td>
+                        <td>2026-01-21</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Luanda</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Filipe Sousa</td>
+                        <td>filipe@empresa.com</td>
+                        <td>Financeiro</td>
+                        <td>Analista</td>
+                        <td><span class="badge pendente">Pendente</span></td>
+                        <td>2025-02-26</td>
+                        <td>2026-01-03</td>
+                        <td>+244 9xx xxx xxx</td>
+                        <td>Lubango</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Lídia Correia</td>
+                        <td>lidia@empresa.com</td>
+                        <td>Marketing</td>
+                        <td>Social Media</td>
+                        <td><span class="badge activo">Activo</span></td>
                         <td>2024-05-10</td>
                         <td>2026-01-14</td>
                         <td>+244 9xx xxx xxx</td>
@@ -377,6 +1385,28 @@
             });
         });
     </script>
+
+    <h3>O que ganhamos com isso (tipo “DataTables”)</h3>
+
+<ul>
+    <li>
+        Pesquisa instantânea
+    </li>        
+    <li>
+        ↕Ordenação por coluna
+    </li>        
+    <li>
+        Paginação automática
+    </li>        
+    <li>
+        Selector de “mostrar 10/25/50/100”
+    </li>        
+    <li>
+        Responsivo (quando apertar, ele organiza as colunas)
+    </li>
+</ul>
+
+<p><strong>Resultado:</strong></p>
 </body>
 
 </html>
