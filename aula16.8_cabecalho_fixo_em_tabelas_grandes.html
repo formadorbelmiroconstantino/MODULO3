@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tabelas</title>
+
+    <!-- DataTables (CSS) -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.dataTables.min.css">
+
+    <style>
+        /* Define a fonte padrão da página, cor de fundo e espacamento interno */
+        body {
+            font-family: Arial, sans-serif;
+            /* Fonte simples e legível */
+            background: #f4f6f9;
+            /* Cor de fundo clara (layout admin) */
+            padding: 20px;
+            /* Espaço interno em toda a página */
+        }
+
+        /* Estilo do título */
+        h2 {
+            margin: 0 0 12px;
+            /* Espaço inferior entre o h2 e a tabela */
+        }
+
+        /* Container que cria o scroll */
+        .table-container {
+            max-height: 400px;
+            /* Altura visível da tabela */
+            overflow-y: auto;
+            /* Scroll vertical */
+            border: 1px solid #ccc;
+            /* Apenas estética */
+        }
+
+        /* Tabela ocupa toda a largura */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        /* Células */
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        /* Cabeçalho fixo */
+        thead th {
+            position: sticky;
+            /* Torna o cabeçalho "colável" */
+            top: 0;
+            /* Fixa no topo do container */
+            background: #000;
+            /* Fundo obrigatório */
+            z-index: 2;
+            color: white;
+            /* Fica acima das linhas */
+        }
+
+        /* Zebra striping (opcional, mas profissional) */
+        tbody tr:nth-child(even) {
+            background: #fafafa;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Cabeçalho Fixo em Tabelas Grandes</h1>
+    <p>
+        Cabeçalhos fixos em tabelas grandes é essencial para usabilidade e performance.</p>
+
+    <p>Vou explicar passo a passo, só com HTML + CSS puro (sem JS), depois deixaremos boas práticas profissionais e
+        armadilhas comuns.</p>
+
+    <h2>1. Ideia principal</h2>
+
+    <p>O truque é simples:</p>
+    <ul>
+        <li>A tabela fica dentro de um container com scroll</li>
+        <li>O &lt;th&gt; usa</li> <br>
+        position: sticky; <br>
+        top: 0; <br>
+        <li>Assim, quando fazes scroll vertical, o cabeçalho fica preso no topo.</li>
+    </ul>
+    <h2>2. Estrutura HTML básica</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Departamento</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Nome</td>
+                    <td>ana@empresa.com</td>
+                    <td>TI</td>
+                    <td>Activo</td>
+                </tr>
+                <!-- muitas linhas -->
+                <tr>
+                    <td>1</td>
+                    <td>Nome</td>
+                    <td>ana@empresa.com</td>
+                    <td>TI</td>
+                    <td>Activo</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>Nome</td>
+                    <td>ana@empresa.com</td>
+                    <td>TI</td>
+                    <td>Activo</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Nome</td>
+                    <td>ana@empresa.com</td>
+                    <td>TI</td>
+                    <td>Activo</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Nome</td>
+                    <td>ana@empresa.com</td>
+                    <td>TI</td>
+                    <td>Activo</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Nome</td>
+                    <td>ana@empresa.com</td>
+                    <td>TI</td>
+                    <td>Activo</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Nome</td>
+                    <td>ana@empresa.com</td>
+                    <td>TI</td>
+                    <td>Activo</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Nome</td>
+                    <td>ana@empresa.com</td>
+                    <td>TI</td>
+                    <td>Activo</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Nome</td>
+                    <td>ana@empresa.com</td>
+                    <td>TI</td>
+                    <td>Activo</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Nome</td>
+                    <td>ana@empresa.com</td>
+                    <td>TI</td>
+                    <td>Activo</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Nome</td>
+                    <td>ana@empresa.com</td>
+                    <td>TI</td>
+                    <td>Activo</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Nome</td>
+                    <td>ana@empresa.com</td>
+                    <td>TI</td>
+                    <td>Activo</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Nome</td>
+                    <td>ana@empresa.com</td>
+                    <td>TI</td>
+                    <td>Activo</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Nome</td>
+                    <td>ana@empresa.com</td>
+                    <td>TI</td>
+                    <td>Activo</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Nome</td>
+                    <td>ana@empresa.com</td>
+                    <td>TI</td>
+                    <td>Activo</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Nome</td>
+                    <td>ana@empresa.com</td>
+                    <td>TI</td>
+                    <td>Activo</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Nome</td>
+                    <td>ana@empresa.com</td>
+                    <td>TI</td>
+                    <td>Activo</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Nome</td>
+                    <td>ana@empresa.com</td>
+                    <td>TI</td>
+                    <td>Activo</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Nome</td>
+                    <td>ana@empresa.com</td>
+                    <td>TI</td>
+                    <td>Activo</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Nome</td>
+                    <td>ana@empresa.com</td>
+                    <td>TI</td>
+                    <td>Activo</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Nome</td>
+                    <td>ana@empresa.com</td>
+                    <td>TI</td>
+                    <td>Activo</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Nome</td>
+                    <td>ana@empresa.com</td>
+                    <td>TI</td>
+                    <td>Activo</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><strong>Importante:</strong>
+        O overflow NUNCA vai na &lt;table&gt;, mas sim no container.</p>
+
+    <h2>3. CSS essencial (comentado linha a linha)</h2>
+    <p>
+        /* Container que cria o scroll */ <br>
+        .table-container { <br>
+        max-height: 400px; /* Altura visível da tabela */ <br>
+        overflow-y: auto; /* Scroll vertical */ <br>
+        border: 1px solid #ccc; /* Apenas estética */ <br>
+        } <br>
+        <br>
+        /* Tabela ocupa toda a largura */ <br>
+        table { <br>
+        width: 100%; <br>
+        border-collapse: collapse; <br>
+        } <br>
+        <br>
+        /* Células */ <br>
+        th, td { <br>
+        padding: 10px; <br>
+        border: 1px solid #ddd; <br>
+        text-align: left; <br>
+        } <br>
+        <br>
+        /* Cabeçalho fixo */ <br>
+        thead th { <br>
+        position: sticky; /* Torna o cabeçalho "colável" */ <br>
+        top: 0; /* Fixa no topo do container */ <br>
+        background: #f5f5f5; /* Fundo obrigatório */ <br>
+        z-index: 2; /* Fica acima das linhas */ <br>
+        } <br>
+        <br>
+        /* Zebra striping (opcional, mas profissional) */ <br>
+        tbody tr:nth-child(even) { <br>
+        background: #fafafa; <br>
+        }
+    </p>
+    <h2>4. Resultado visual</h2>
+    <ul>
+        <li>
+            Scroll vertical funciona
+        </li>
+        <li>
+            Cabeçalho nunca desaparece
+        </li>
+        <li>
+            Sem JavaScript
+        </li>
+        <li>
+            Compatível com browsers modernos
+        </li>
+    </ul>
+
+    <h2>5. Erros comuns (Muito importantes)</h2>
+    <ul>
+        <li>overflow na table:</li>
+        <p>table { <br>
+            overflow: auto; ❌ <br>
+            }
+            <li>Não funciona com position: sticky</li>
+    </ul>
+    </p>
+
+    <h2>6. Cabeçalhos fixos + scroll horizontal</h2>
+    <ul>
+        <li>Para tabelas largas:</li>
+        .table-container { <br>
+        max-height: 400px; <br>
+        overflow: auto; /* vertical + horizontal */ <br>
+        }
+        <li>Funciona perfeitamente com colunas largas.</li>
+    </ul>
+
+    <h2>7. Quando isso NÃO é Suficiente</h2>
+    <p>Se a tabela tiver:</p>
+    <ul>
+        <li>5.000+</li>
+        <li>10.000+</li>
+        <li>50.000+ linhas</li>
+        CSS sozinho não resolve performance.
+    </ul>
+    <p>Nesse caso, o caminho profissional é:</p>
+    <ul>
+        <li>Paginação</li>
+        <li>Lazy loading</li>
+        <li>Server-side processing</li>
+    </ul>
+    <p>Normalmente com:</p>
+    <ul>
+        <li>
+            DataTables</li>
+        <li>
+            AJAX</li>
+        <li>
+            PHP + MySQL
+        </li>
+        (Foi por isso que já vimos o DataTables. Com a implementação do DataTables, excluimos o trabalho de estilizarmos as tabelas com CSS.)
+    </ul>
+</body>
+
+</html>

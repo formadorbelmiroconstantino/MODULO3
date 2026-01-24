@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tabelas</title>
+
+    <!-- DataTables (CSS) -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.dataTables.min.css">
+
+    <style>
+        /* Define a fonte padrão da página, cor de fundo e espacamento interno */
+        body {
+            font-family: Arial, sans-serif;
+            /* Fonte simples e legível */
+            background: #f4f6f9;
+        }
+
+        /* Estilo do título */
+        h2 {
+            margin: 0 0 12px;
+            /* Espaço inferior entre o h2 e a tabela */
+        }
+.t{
+  width:100%;
+  border-collapse:collapse;
+}
+.t th, .t td{
+  border:1px solid #ddd;
+  padding:10px;
+  text-align:left;
+}
+.t th{
+  background:#f5f5f5;
+}
+       
+    </style>
+</head>
+
+<body>
+    <h1>Mesclagem de Células de Tabelas</h1>
+    <p>Em HTML, “mesclar células” numa tabela é feito com atributos do próprio HTML, não com CSS:</p>
+    <ul>
+        <li>colspan → mescla colunas (horizontal)</li>
+        <li>rowspan → mescla linhas (vertical)</li>
+    </ul>
+<p>O CSS entra só para estilo (bordas, alinhamento, cores, etc.).</p>
+<hr>
+<h2>1. Mesclar colunas (colspan)</h2>
+<table class="t">
+  <tr>
+    <th colspan="3">Relatório de Vendas</th>
+  </tr>
+  <tr>
+    <th>Mês</th>
+    <th>Produto</th>
+    <th>Total</th>
+  </tr>
+  <tr>
+    <td>Jan</td>
+    <td>Diamante A</td>
+    <td>120</td>
+  </tr>
+</table>
+<ul>
+    <li>O cabeçalho “Relatório de Vendas” ocupa 3 colunas.</li>
+</ul>
+<hr>
+<h2>2. Mesclar linhas (rowspan)</h2>
+<table class="t">
+  <tr>
+    <th>Departamento</th>
+    <th>Funcionário</th>
+    <th>Estado</th>
+  </tr>
+
+  <tr>
+    <td rowspan="2">TI</td>
+    <td>Ana</td>
+    <td>Activo</td>
+  </tr>
+  <tr>
+    <td>Paulo</td>
+    <td>Activo</td>
+  </tr>
+
+  <tr>
+    <td>RH</td>
+    <td>Maria</td>
+    <td>Inactivo</td>
+  </tr>
+</table>
+<ul>
+    <li>“TI” ocupa 2 linhas.</li>
+</ul>
+<hr>
+<h2>3. Colspan + Rowspan (Exemplo completo)</h2>
+<table class="t">
+  <tr>
+    <th rowspan="2">Ano</th>
+    <th colspan="2">1º Semestre</th>
+    <th colspan="2">2º Semestre</th>
+  </tr>
+  <tr>
+    <th>Jan-Jun</th>
+    <th>Total</th>
+    <th>Jul-Dez</th>
+    <th>Total</th>
+  </tr>
+
+  <tr>
+    <td>2025</td>
+    <td>50</td>
+    <td>50</td>
+    <td>70</td>
+    <td>70</td>
+  </tr>
+</table>
+<hr>
+<h2>CSS básico (só estilo)</h2>
+<p>
+    .t{ <br>
+  width:100%; <br>
+  border-collapse:collapse; <br>
+} <br>
+.t th, .t td{ <br>
+  border:1px solid #ddd; <br>
+  padding:10px; <br>
+  text-align:left; <br>
+} <br>
+.t th{ <br>
+  background:#f5f5f5; <br>
+}
+</p>
+<p>
+    Regras importantes (para não “quebrar” a tabela)
+</p>
+
+<ul>
+    <li>
+        Se usas colspan="3", aquela célula substitui 3 células daquela linha.
+    </li>        
+        Se usas rowspan="2", na linha seguinte tu não deves repetir a célula “ocupada”.
+    </li>        
+        Planeia a “grade” da tabela como se fosse um grid: cada mesclagem “consome espaço”.
+    </li>
+</ul>
+</body>
+</html>
