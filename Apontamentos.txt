@@ -48,4 +48,5 @@ Se quiser o nível “profissional” mesmo para tabelas MUITO grandes (ex: 10.0
 Quer esse exemplo também (PHP + MySQL + AJAX + DataTables server-side)?
 
 
-Aula 21,4 . Caption e Escopo de Títulos em Tabelas
+Aula 21.4 . Caption e Escopo de Títulos em Tabelas
+Aula 21.5 - Desadfio (Parte 1)

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tabelas</title>
+
+    <!-- DataTables (CSS) -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.dataTables.min.css">
+
+    <style>
+        /* Define a fonte padrão da página, cor de fundo e espacamento interno */
+        body {
+            font-family: Arial, sans-serif;
+            /* Fonte simples e legível */
+            background: #f4f6f9;
+        }
+
+        /* Estilo do título */
+        h2 {
+            margin: 0 0 12px;
+            /* Espaço inferior entre o h2 e a tabela */
+        }
+.t{
+  width:100%;
+  border-collapse:collapse;
+}
+ td{
+  border:1px solid #ddd;
+  padding:10px;
+  text-align:left;
+  text-align: center;
+}
+.t th{
+  background:#f5f5f5;
+}
+       
+    </style>
+</head>
+
+<body>
+    <h1>Exercício 1</h1>
+<table class="t">
+ <thead>
+
+ </thead>
+ <tbody>
+<tr>
+  <td>1</td>
+   <td>2</td>
+    <td rowspan="2">3</td>
+     <td>4</td>
+</tr>
+<tr>
+  <td>5</td>
+   <td>6</td>
+     <td>7</td>
+</tr>
+<tr>
+  <td colspan="3">8</td>
+   <td>9</td>
+</tr>
+
+<tr>
+  <td rowspan="2">10</td>
+   <td colspan="2">11</td>
+     <td>12</td>
+</tr>
+<tr>
+  <td>13</td>
+   <td>14</td>
+    <td>15</td>
+</tr>
+ </tbody>
+  </table>
+<hr>
+<H1>Exercício 2</H1>
+ <table class="t">
+<thead>
+
+</thead>
+<tbody>
+  <tr>
+    <td colspan="4">A</td>
+    <td rowspan="4">B</td>
+  </tr>
+    <tr>
+    <td rowspan="4">C</td>
+    <td>D</td>
+     <td>E</td>
+      <td>F</td>
+  </tr>
+
+    <tr>
+    <td>G</td>
+    <td>H</td>
+    <td>I</td>
+  </tr>
+   <tr>
+    <td>J</td>
+    <td>K</td>
+    <td>L</td>
+  </tr>
+    <tr>
+    <td colspan="4">M</td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
