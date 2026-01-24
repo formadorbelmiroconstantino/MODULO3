@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="pt">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tabelas</title>
+
+  <!-- DataTables (CSS) -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.dataTables.min.css">
+
+  <style>
+    /* Define a fonte padrão da página, cor de fundo e espacamento interno */
+    body {
+      font-family: Arial, sans-serif;
+      /* Fonte simples e legível */
+      background: #f4f6f9;
+    }
+
+    /* Estilo do título */
+    h2 {
+      margin: 0 0 12px;
+      /* Espaço inferior entre o h2 e a tabela */
+    }
+
+    .t {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    td {
+      padding: 10px;
+      text-align: left;
+      text-align: center;
+    }
+
+    .t th {
+      background: #f5f5f5;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Escopo de Grupos em Tabelas</h1>
+  <p>
+    Para gerenciar escopos de grupo em tabelas grandes com HTML e CSS, utilize as tags estruturais &lt;thead&gt;,
+    &lt;tbody&gt; e &lt;tfoot&gt; para agrupar linhas, e o atributo scope (col, row, colgroup, rowgroup) nas tags
+    &lt;th&gt; para definir a relação das células. O CSS permite estilizar esses grupos para melhorar a legibilidade de
+    dados complexos.
+  </p>
+  <hr>
+  <h2>Principais Técnicas e Elementos:</h2>
+
+  <ul>
+    <li>
+      Estruturação com &lt;thead&gt;, &lt;tbody&gt; e &lt;tfoot&gt;: Separa o cabeçalho, corpo e rodapé, facilitando a
+      aplicação de estilos CSS a seções específicas de grandes conjuntos de dados.
+    </li>
+    <li>
+      Atributo scope em &lt;th&gt;:
+      <ul>
+        <li>
+          scope="col": Define que o cabeçalho se refere a toda a coluna.
+        </li>
+        <li>
+          scope="row": Define que o cabeçalho se refere a toda a linha.
+        </li>
+        <li>
+          scope="colgroup": Define um cabeçalho para um grupo de colunas.
+        </li>
+        <li>
+          scope="rowgroup": Define um cabeçalho para um grupo de linhas.
+        </li>
+      </ul>
+    </li>
+    <li>
+      Mesclagem de Células: Utilize colspan para colunas e rowspan para linhas para agrupar células adjacentes em
+      tabelas complexas.
+    </li>
+    <li>CSS para Tabelas Grandes:
+      <ul>
+        <li>
+          Use seletores nth-child() para criar linhas listradas (zebra striping) para facilitar a leitura.
+        </li>
+        <li>
+          Aplique border-bottom nos elementos <th> e
+          <td> para destacar divisões.
+        </li>
+        <li>
+          Utilize a propriedade `position: sticky` no CSS em <thead> para manter o cabeçalho fixo durante a rolagem de
+            tabelas grandes.
+
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>Exemplo Prático de Estrutura:</h3>
+
+  <p>
+    <strong>No HTML</strong> <br><br>
+    &lt;table border="1" class="t"&gt; <br>
+      &lt;caption>Relatório Mensal&lt;/caption&gt; <br>
+      &lt;thead&gt; <br>
+        &lt;tr&gt; <br>
+          &lt;th scope="col"&gt;Produto&lt;/th&gt; <br>
+          &lt;th scope="col"&gt;Qtd&lt;/th&gt; <br>
+        &lt;/tr&gt; <br>
+      &lt;/thead&gt; <br>
+      &lt;tbody&gt; <br>
+        &lt;tr&gt; <br>
+          &lt;th scope="rowgroup" rowspan="3"&gt;Eletrónicos&lt;/th&gt; <br>
+          &lt;td&gt;TV&lt;/td&gt; <br>
+        &lt;/tr&gt; <br>
+        &lt;tr&gt; <br>
+          &lt;td&gt;Telemómeis&lt;/td&gt; <br>
+        &lt;/tr&gt; <br>
+        &lt;tr&gt; <br>
+          &lt;td&gt;Computadores Portáteis&lt;/td&gt; <br>
+        &lt;/tr&gt; <br>
+      &lt;/tbody&gt; <br>
+      &lt;tfoot&gt; <br>
+        &lt;tr&gt; <br>
+          &lt;td colspan="2"&gt;Total Geral&lt;/td&gt; <br>
+        &lt;/tr&gt; <br>
+      &lt;/tfoot&gt; <br>
+    &lt;/table&gt; <br><br>
+
+    <strong>No CSS</strong> <br> <br>
+      .t { <br>
+      width: 100%; <br>
+      border-collapse: collapse; <br>
+    } <br>
+ <br>
+    td { <br>
+      padding: 10px; <br>
+      text-align: left; <br>
+      text-align: center; <br>
+    } <br>
+ <br>
+    .t th { <br>
+      background: #f5f5f5; <br>
+    } <br>
+  </p>
+
+  <h3>Resultado</h3>
+    <table border="1" class="t">
+    <caption>Relatório Mensal</caption>
+    <thead>
+      <tr>
+        <th scope="col">Produto</th>
+        <th scope="col">Qtd</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="rowgroup" rowspan="3">Eletrónicos</th>
+        <td>TV</td>
+      </tr>
+      <tr>
+        <td>Telemómeis</td>
+      </tr>
+      <tr>
+        <td>Computadores Portáteis</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">Total Geral</td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+</html>
