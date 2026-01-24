@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tabelas</title>
+
+    <!-- DataTables (CSS) -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.dataTables.min.css">
+
+    <style>
+        /* Define a fonte padrão da página, cor de fundo e espacamento interno */
+        body {
+            font-family: Arial, sans-serif;
+            /* Fonte simples e legível */
+            background: #f4f6f9;
+            /* Cor de fundo clara (layout admin) */
+            padding: 20px;
+            /* Espaço interno em toda a página */
+        }
+
+        /* Estilo do título */
+        h2 {
+            margin: 0 0 12px;
+            /* Espaço inferior entre o h2 e a tabela */
+        }
+
+        /* Cartão que envolve a tabela */
+        .card {
+            background: #fff;
+            /* Fundo branco */
+            border: 1px solid #ddd;
+            /* Borda cinza clara */
+            border-radius: 10px;
+            /* Cantos arredondados */
+            padding: 14px;
+            /* Espaço interno */
+        }
+
+
+
+        /* Efeito visual ao passar o mouse nas linhas */
+        table.dataTable tbody tr:hover {
+            background: #eef4ff;
+            /* Azul claro no hover */
+        }
+        /* Força largura mínima da tabela
+   (ativa scroll horizontal quando a tela é menor) */
+        table {
+            /* Garante que colunas não fiquem esmagadas */
+            border-collapse: collapse;
+        }
+
+        caption { 
+            font-size: 1.5em;
+            font-weight: bold;
+            /*text-align: left; */
+            background-color: lightgray;
+           box-shadow:inset 0px 1px 1px black;
+        }
+
+        table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table tr:nth-child(even) {
+  background-color: #f2f2f2; /* Cor para linhas pares */
+}
+table tr:nth-child(odd) {
+  background-color: #ffffff; /* Cor para linhas ímpares */
+}
+
+    </style>
+</head>
+
+<body>
+    <h1>Caption e Escopo de Títulos em Tabelas</h1>
+    <p>
+        Para criar um efeito zebrado (linhas alternadas) em tabelas HTML, utiliza-se CSS com o selector tr:nth-child(even) (para linhas pares) ou tr:nth-child(odd) (para linhas ímpares) dentro da tag &lt;tbody&gt;. Essa técnica melhora a legibilidade dos dados ao alternar cores de fundo, como cinza claro e branco. Uma das vantagens do DataTables é que ela já vem com a implementação do Efeito Zebrado.
+    </p>
+
+    <p><strong>Exemplo no CSS:</strong></p>
+    <P>
+        table { <br>
+  width: 100%; <br>
+  border-collapse: collapse; <br>
+} <br>
+table tr:nth-child(even) { <br>
+  background-color: #f2f2f2; /* Cor para linhas pares */ <br>
+} <br>
+table tr:nth-child(odd) { <br>
+  background-color: #ffffff; /* Cor para linhas ímpares */ <br>
+}
+<p>
+    Se quisermos simplificar, ao invés de utilizarmos nth-child(even) e nth-child(odd), podemos utilizar nth-child(2n) se quisermos que que as cores variem de uma em uma linha, ou seja, linha sim, linha não. No entanto, só utilizaríamos a cor branca e a cor que definirmos.
+</p>
+<p>
+    Se o fundo do site/projecto for branco, então não precisa utilizar o even e odd. No entanto, se no fundo houver uma imagem, aí sim, pode utilizar o even e odd adicionando cores diferentes de branco entre eles desde que as cores façam parte da paleta de cores do seu projecto. Está ler muito a palavra cores não? Sim, é mesmo para perceber. Essa redundância é muito importante.
+</p>
+<ul>
+    <li>
+        tr:nth-child(even): Selecciona todas as linhas pares da tabela e aplica uma cor de fundo.
+    </li>
+    <li>
+        tr:nth-child(odd): Selecciona as linhas ímpares para uma cor diferente, se necessário.
+    </li>
+    <li>
+        border-collapse: collapse: Garante que as bordas da tabela sejam unificadas para um design melhor.
+    </li>
+</ul>
+<p>O uso de nth-child com CSS3 é preferível por ser mais eficiente e directo, evitando scripts adicionais para criar o efeito.</p> 
+    </P>
+    <div class="card">
+        <div class="table-wrap">
+            <table border="1" class="display nowrap" style="width:100%">
+                <caption>Lista de Produtos e Preços</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Código</th>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Preço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>000CP1</td>
+                        <td>Maçã</td>
+                        <td>Kzs 2,00</td>
+                    </tr>
+                    <tr>
+                        <td>000CP2</td>
+                        <td>Mamão</td>
+                        <td>Kzs 2,00</td>
+                    </tr>
+                    <tr>
+                        <td>000CP3</td>
+                        <td>Laranja</td>
+                        <td>Kzs 2,00</td>
+                    </tr>
+                    <tr>
+                        <td>000CP4</td>
+                        <td>Tangerina</td>
+                        <td>Kzs 2,00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <hr>
+
+</body>
+
+</html>

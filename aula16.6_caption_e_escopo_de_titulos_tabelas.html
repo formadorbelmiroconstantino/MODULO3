@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tabelas</title>
+
+    <!-- DataTables (CSS) -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.dataTables.min.css">
+
+    <style>
+        /* Define a fonte padrão da página, cor de fundo e espacamento interno */
+        body {
+            font-family: Arial, sans-serif;
+            /* Fonte simples e legível */
+            background: #f4f6f9;
+            /* Cor de fundo clara (layout admin) */
+            padding: 20px;
+            /* Espaço interno em toda a página */
+        }
+
+        /* Estilo do título */
+        h2 {
+            margin: 0 0 12px;
+            /* Espaço inferior entre o h2 e a tabela */
+        }
+
+        /* Cartão que envolve a tabela */
+        .card {
+            background: #fff;
+            /* Fundo branco */
+            border: 1px solid #ddd;
+            /* Borda cinza clara */
+            border-radius: 10px;
+            /* Cantos arredondados */
+            padding: 14px;
+            /* Espaço interno */
+        }
+
+
+
+        /* Efeito visual ao passar o mouse nas linhas */
+        table.dataTable tbody tr:hover {
+            background: #eef4ff;
+            /* Azul claro no hover */
+        }
+        /* Força largura mínima da tabela
+   (ativa scroll horizontal quando a tela é menor) */
+        table {
+            /* Garante que colunas não fiquem esmagadas */
+            border-collapse: collapse;
+        }
+
+        caption { 
+            font-size: 1.5em;
+            font-weight: bold;
+            /*text-align: left; */
+            background-color: lightgray;
+           box-shadow:inset 0px 1px 1px black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Caption e Escopo de Títulos em Tabelas</h1>
+    <p>
+        O elemento &lt;caption&gt; adiciona um título descritivo acima de uma tabela HTML (dentro de &lt;table&gt;),
+        enquanto o atributo scope (com valores "col" ou "row") nas tags &lt;th&gt; define se o cabeçalho refere-se à uma
+        coluna ou linha, garantindo a semântica e acessibilidade. CSS permite estilizar a legenda e os cabeçalhos para
+        melhor visualização.
+    </p>
+
+    <div class="card">
+        <div class="table-wrap">
+            <table border="1" id="usersTable" class="display nowrap" style="width:100%">
+                <caption>Lista de Produtos e Preços</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Código</th>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Preço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>000CP1</td>
+                        <td>Maçã</td>
+                        <td>Kzs 2,00</td>
+                    </tr>
+                    <tr>
+                        <td>000CP2</td>
+                        <td>Mamão</td>
+                        <td>Kzs 2,00</td>
+                    </tr>
+                    <tr>
+                        <td>000CP3</td>
+                        <td>Laranja</td>
+                        <td>Kzs 2,00</td>
+                    </tr>
+                    <tr>
+                        <td>000CP4</td>
+                        <td>Tangerina</td>
+                        <td>Kzs 2,00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <hr>
+
+    <h2>Principais detalhes:</h2>
+<ul>
+    <li>
+        Caption (&lt;caption&gt;): Deve ser colocado imediatamente após a tag &lt;table&gt;. Por padrão, fica centralizado acima da tabela, mas pode ser estilizado com CSS (ex: caption-side: bottom;).
+    </li>
+    <li>
+        Escopo (scope="col" ou "row"): Crucial para leitores de tela e SEO, informando se o &lt;th&gt; é título da coluna (col) ou da linha (row).
+    </li>
+    <li>
+        Estilização CSS: Pode-se usar caption { font-weight: bold; text-align: left; } para personalizar a aparência da legenda.
+    </li>
+    <li>
+        Semântica: O uso correcto de &lt;caption&gt; e scope melhora a acessibilidade e a estrutura semântica do documento.
+    </li>
+</ul>
+    <!-- jQuery (necessário para muitos exemplos clássicos) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- DataTables (JS) -->
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.2/js/dataTables.responsive.min.js"></script>
+
+    <script>
+        $(function () {
+            $('#usersTable').DataTable({
+                // funcionalidades principais
+                paging: true,
+                searching: true,
+                ordering: true,
+                info: true,
+                pageLength: 10,
+                lengthMenu: [[10, 25, 50, 100], [10, 25, 50, 100]],
+
+                // responsivo (oculta colunas e mostra detalhes quando necessário)
+                responsive: false,
+
+                // melhor para tabela larga
+                scrollX: true,
+
+                // idioma PT (pode ajustar à vontade)
+                language: {
+                    search: "Pesquisar:",
+                    lengthMenu: "Mostrar _MENU_ registos",
+                    info: "Mostrando _START_ a _END_ de _TOTAL_ registos",
+                    infoEmpty: "Sem registos",
+                    zeroRecords: "Nenhum resultado encontrado",
+                    paginate: { first: "Primeiro", last: "Último", next: "Seguinte", previous: "Anterior" }
+                },
+
+                // exemplo: ordenar por ID asc ao carregar
+                order: [[0, 'asc']]
+            });
+        });
+    </script>
+</body>
+
+</html>
