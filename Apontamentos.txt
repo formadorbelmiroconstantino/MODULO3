@@ -54,3 +54,4 @@ Aula 21.6 - Mais Exercício
 Aula 21.7 - Escopos de Grupo
 
 Aula 21.8 - Exercício (Parte 2)
+Aula 21.9 - Agrupando Colunas com colgroup 

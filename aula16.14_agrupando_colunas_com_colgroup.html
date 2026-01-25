@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tabelas</title>
+
+    <!-- DataTables (CSS) -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.dataTables.min.css">
+
+    <style>
+        /* Define a fonte padrão da página, cor de fundo e espacamento interno */
+        body {
+            font-family: Arial, sans-serif;
+            /* Fonte simples e legível */
+            background: #f4f6f9;
+        }
+
+        /* Estilo do título */
+        h2 {
+            margin: 0 0 12px;
+            /* Espaço inferior entre o h2 e a tabela */
+        }
+ table { border-collapse: collapse; }
+  td, th { border: 1px solid black; padding: 10px; }
+  
+  /* Estilizando o grupo de colunas */
+  .coluna_nome { background-color: #f2f2f2; }
+  .coluna_idade { background-color: #d1e7dd; font-weight: bold; }
+  /*Esse efeito nao vai funcionar porque span="2" class="coluna_idade" vai pegar as duas colunas seguintes em funcao do span="2"*/
+.coluna_cidade{
+  background-color: rgb(94, 91, 91);
+}
+       
+    </style>
+</head>
+
+<body>
+    <h1>Agrupando Colunas com colgroup </h1>
+    <p>
+      A tag HTML &lt;colgroup&gt; agrupa colunas em uma tabela para aplicar estilos CSS (como background-color ou width) de forma eficiente, sem repetir regras em cada célula &lt;td&gt;. Ela é colocada logo após &lt;table&gt; e pode conter tags &lt;col&gt; individuais ou usar o atributo span para abranger múltiplas colunas. 
+    </p>
+  <h2>Exemplo Prático de Uso:</h2>
+
+<table>
+  <!-- Define estilos para colunas específicas -->
+  <colgroup>
+    <col class="coluna_nome"> <!-- Coluna 1 -->
+    <col span="2" class="coluna_idade"> <!-- Colunas 2 e 3 -->
+    <col class="coluna_cidade"> <!-- Nao tera efeito porque o span="2" de cima permite a estilizacao de duas colunas -->
+  </colgroup>
+  <tr>
+    <th scope="col">Nome</th>
+    <th scope="col">Idade</th>
+    <th scope="col">Cidade</th>
+  </tr>
+  <tr>
+    <td>Ana</td>
+    <td>25</td>
+    <td>Lisboa</td>
+  </tr>
+</table>
+
+<h2>Principais Pontos:</h2>
+<ul>
+  <li>
+    &lt;colgroup&gt;: Define o grupo.
+  </li>
+  <li>
+    &lt;col&gt;: Define as propriedades de uma ou mais colunas dentro do grupo.
+  </li>
+  <li>
+    Atributo span: Define quantas colunas consecutivas o &lt;col&gt; abrange (ex: &lt;col span="2"&gt;).
+  </li>
+  <li>
+    Limitação: Apenas algumas propriedades CSS funcionam com &lt;col&gt;, principalmente width, background, border e visibility.
+  </li>
+</ul>
+</body>
+</html>
